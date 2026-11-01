@@ -2,12 +2,11 @@
 
 An interactive web application for learning and practicing **Chisanbop**, a Korean finger-counting method.
 
-**[🚀 Live Demo](YOUR_DEPLOYED_URL)**
+**[🚀 Live Demo](https://chisanbop.vercel.app/)**
 
 ## Preview
 
-<!-- Add application screenshot here -->
-<!-- ![Chisanbop Preview](./screenshots/preview.png) -->
+![Chisanbop Preview](/docs/assets/addition.gif)
 
 ## Features
 
