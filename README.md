@@ -1,39 +1,57 @@
+# Chisanbop – Interactive Visualizer
 
-# Chisanbop — Interactive Visualizer
+An interactive web application for learning and practicing **Chisanbop**, a Korean finger-counting method.
 
-A React + TypeScript + Vite web application for learning and practicing the Chisanbop finger-counting system.
+**[🚀 Live Demo](YOUR_DEPLOYED_URL)**
+
+## Preview
+
+<!-- Add application screenshot here -->
+<!-- ![Chisanbop Preview](./screenshots/preview.png) -->
 
 ## Features
 
-- Two interactive hand visualizations.
-- Left hand represents tens; right hand represents units.
-- Child-friendly, rounded hand design with mirrored thumb positioning:
-  - Left hand: thumb on the right side.
-  - Right hand: thumb on the left side.
-- Clickable fingers with visual feedback.
-- Keyboard interaction and shortcuts.
-- Instant number display from 0 to 99.
-- Addition exercises with clearly displayed steps.
-- Automatic carry when the units exceed 9.
-- Step-by-step explanations and a history of the calculation.
-- Responsive layout for desktop and mobile devices.
+- **Interactive hand visualizations** – visualize numbers using both hands.
+- **Tens and units** – left hand represents tens (10–90), right hand represents units (0–9).
+- **Interactive fingers** – click fingers to change their active state.
+- **Keyboard shortcuts** – control both hands using your keyboard.
+- **Instant number display** – represent numbers from 0 to 99.
+- **Addition practice** – interactive arithmetic exercises.
+- **Automatic carry handling** – visualize carrying when units exceed 9.
+- **Step-by-step explanations** – follow the calculation process and its history.
+- **Responsive design** – supports desktop and mobile devices.
+
+## Chisanbop Finger System
+
+Each hand represents a value from 0 to 9.
+
+| Finger | Value |
+|---|---:|
+| Thumb | 5 |
+| Index finger | 1 |
+| Middle finger | 1 |
+| Ring finger | 1 |
+| Little finger | 1 |
+
+The left hand represents tens, while the right hand represents units.
 
 ## Keyboard Shortcuts
 
-### Interactive Value Page
+| Hand | Keys |
+|---|---|
+| Left hand | `Q W E R T` |
+| Right hand | `P Y U I O` |
+| Reset | `Escape` |
 
-- **Left hand:** `Q W E R T`
-- **Right hand:** `A S D F G`
-- **Reset:** `Escape`
+## Tech Stack
 
-The keyboard shortcuts correspond to the fingers from index to thumb according to the application's finger mapping.
+- React
+- TypeScript
+- Vite
+- CSS Modules
+- Lucide React
 
-### Finger Values
+## About
 
-- Thumb: 5
-- Index finger: 1
-- Middle finger: 1
-- Ring finger: 1
-- Little finger: 1
+Chisanbop combines a traditional finger-counting technique with an interactive digital experience, making mental arithmetic more visual and engaging.
 
-Each finger can be toggled independently. The thumb represents five, while each of the other four fingers represents one.
