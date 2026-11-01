@@ -1,0 +1,47 @@
+[
+  {
+    "value": 0,
+    "expectedFingers": [false, false, false, false, false],
+    "description": "Brak aktywnych palców"
+  },
+  {
+    "value": 1,
+    "expectedFingers": [true, false, false, false, false],
+    "description": "Aktywny palec wskazujący"
+  },
+  {
+    "value": 2,
+    "expectedFingers": [false, true, false, false, false],
+    "description": "Aktywny palec środkowy"
+  },
+  {
+    "value": 3,
+    "expectedFingers": [true, true, false, false, false],
+    "description": "Aktywne palce wskazujący i środkowy"
+  },
+  {
+    "value": 4,
+    "expectedFingers": [false, false, true, false, false],
+    "description": "Aktywny palec serdeczny"
+  },
+  {
+    "value": 5,
+    "expectedFingers": [true, false, true, false, false],
+    "description": "Aktywne palce wskazujący i serdeczny"
+  },
+  {
+    "value": 8,
+    "expectedFingers": [false, false, false, true, false],
+    "description": "Aktywny mały palec"
+  },
+  {
+    "value": 16,
+    "expectedFingers": [false, false, false, false, true],
+    "description": "Aktywny kciuk"
+  },
+  {
+    "value": 31,
+    "expectedFingers": [true, true, true, true, true],
+    "description": "Wszystkie palce aktywne"
+  }
+]

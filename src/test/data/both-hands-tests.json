@@ -1,0 +1,37 @@
+[
+  {
+    "tens": 0,
+    "units": 7,
+    "expectedLeftFingers": [false, false, false, false, false],
+    "expectedRightFingers": [true, true, true, false, false],
+    "description": "Liczba 7"
+  },
+  {
+    "tens": 1,
+    "units": 3,
+    "expectedLeftFingers": [false, false, false, true, false],
+    "expectedRightFingers": [false, true, true, true, false],
+    "description": "Liczba 13"
+  },
+  {
+    "tens": 4,
+    "units": 9,
+    "expectedLeftFingers": [false, true, false, false, false],
+    "expectedRightFingers": [true, true, true, true, true],
+    "description": "Liczba 49"
+  },
+  {
+    "tens": 4,
+    "units": 6,
+    "expectedLeftFingers": [false, true, false, false, false],
+    "expectedRightFingers": [true, true, false, false, false],
+    "description": "Liczba 46"
+  },
+  {
+    "tens": 5,
+    "units": 0,
+    "expectedLeftFingers": [false, true, false, true, false],
+    "expectedRightFingers": [false, false, false, false, false],
+    "description": "Liczba 50"
+  }
+]
