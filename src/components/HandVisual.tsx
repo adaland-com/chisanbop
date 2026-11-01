@@ -63,8 +63,9 @@ export default function HandVisual({
 
       <div className={styles.handDrawing}>
         <div className={styles.palm}>
-          {fingerOrder.map((index) => {
+          {fingerOrder.map((index, displayIndex) => {
             const active = fingers[index];
+            const key = keys[displayIndex];
 
             return (
               <button
@@ -82,12 +83,10 @@ export default function HandVisual({
                   active ? "aktywny" : "nieaktywny"
                 }`}
                 aria-pressed={active}
-                title={`${fingerNames[index]}${
-                  keys[index] ? ` (${keys[index]})` : ""
-                }`}
+                title={`${fingerNames[index]}${key ? ` (${key})` : ""}`}
               >
-                {interactive && keys[index] && (
-                  <span className={styles.fingerKey}>{keys[index]}</span>
+                {interactive && key && (
+                  <span className={styles.fingerKey}>{key}</span>
                 )}
               </button>
             );

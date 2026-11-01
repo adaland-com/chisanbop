@@ -1,12 +1,11 @@
-import styles from "./InteractiveHandCard.module.css";
-import { LeftHand, RightHand } from "./index";
-import { calculateLeftHandValue } from "../utils";
+import { handConfigs, type HandSide } from "./HandConfig";
+import LeftHand from "./LeftHand";
+import RightHand from "./RightHand";
 
 interface InteractiveHandCardProps {
-  side: "left" | "right";
+  side: HandSide;
   value: number;
   label: string;
-  keys: string[];
   onToggle: (index: number) => void;
 }
 
@@ -14,26 +13,25 @@ export default function InteractiveHandCard({
   side,
   value,
   label,
-  keys,
   onToggle,
 }: InteractiveHandCardProps) {
-  const displayValue = side === "left" ? calculateLeftHandValue(value) : value;
   const HandComponent = side === "left" ? LeftHand : RightHand;
 
+  const config = handConfigs[side];
+
+  const displayKeys = config.fingerOrder.map(
+    (index) => config.fingers[index].key
+  );
+
   return (
-    <div className={styles.interactiveHandCard}>
-      <div className={styles.handCardHeading}>
-        <div>
-          <span className="eyebrow">{side === "left" ? "LEWA DŁOŃ" : "PRAWA DŁOŃ"}</span>
-          <h2 className={styles.handCardHeadingH2}>{label}</h2>
-        </div>
-        <strong className={styles.handCardHeadingStrong}>{displayValue}</strong>
-      </div>
+    <div>
+      <h3>{label}</h3>
+
       <HandComponent
         value={value}
         interactive
         onToggle={onToggle}
-        keys={keys}
+        keys={displayKeys}
       />
     </div>
   );

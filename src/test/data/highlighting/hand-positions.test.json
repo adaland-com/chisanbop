@@ -1,0 +1,87 @@
+
+{
+  "leftHandTests": [
+    {
+      "description": "Lewa dłoń - 0: żaden palec aktywny",
+      "value": 0
+    },
+    {
+      "description": "Lewa dłoń - 1: aktywny wskazujący",
+      "value": 1
+    },
+    {
+      "description": "Lewa dłoń - 2: wskazujący i środkowy",
+      "value": 2
+    },
+    {
+      "description": "Lewa dłoń - 3: wskazujący, środkowy i serdeczny",
+      "value": 3
+    },
+    {
+      "description": "Lewa dłoń - 4: cztery palce bez kciuka",
+      "value": 4
+    },
+    {
+      "description": "Lewa dłoń - 5: aktywny kciuk",
+      "value": 5
+    },
+    {
+      "description": "Lewa dłoń - 6: kciuk i wskazujący",
+      "value": 6
+    },
+    {
+      "description": "Lewa dłoń - 7: kciuk, wskazujący i środkowy",
+      "value": 7
+    },
+    {
+      "description": "Lewa dłoń - 8: kciuk, wskazujący, środkowy i serdeczny",
+      "value": 8
+    },
+    {
+      "description": "Lewa dłoń - 9: wszystkie palce",
+      "value": 9
+    }
+  ],
+  "rightHandTests": [
+    {
+      "description": "Prawa dłoń - 0: żaden palec aktywny",
+      "value": 0
+    },
+    {
+      "description": "Prawa dłoń - 1: aktywny wskazujący",
+      "value": 1
+    },
+    {
+      "description": "Prawa dłoń - 2: wskazujący i środkowy",
+      "value": 2
+    },
+    {
+      "description": "Prawa dłoń - 3: wskazujący, środkowy i serdeczny",
+      "value": 3
+    },
+    {
+      "description": "Prawa dłoń - 4: cztery palce bez kciuka",
+      "value": 4
+    },
+    {
+      "description": "Prawa dłoń - 5: aktywny kciuk",
+      "value": 5
+    },
+    {
+      "description": "Prawa dłoń - 6: kciuk i wskazujący",
+      "value": 6
+    },
+    {
+      "description": "Prawa dłoń - 7: kciuk, wskazujący i środkowy",
+      "value": 7
+    },
+    {
+      "description": "Prawa dłoń - 8: kciuk, wskazujący, środkowy i serdeczny",
+      "value": 8
+    },
+    {
+      "description": "Prawa dłoń - 9: wszystkie palce",
+      "value": 9
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+[
+  {
+  "expected": 91,
+  "expectedTens": 9,
+  "expectedUnits": 1,
+  "expectedLeftFingers": [
+    "Wskazujący",
+    "Środkowy",
+    "Serdeczny",
+    "Mały",
+    "Kciuk"
+  ],
+  "expectedRightFingers": [
+    "Wskazujący"
+  ]
+}
+]

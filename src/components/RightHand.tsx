@@ -1,13 +1,6 @@
 import styles from "./HandVisual.module.css";
 import { handConfigs } from "./HandConfig";
-
-type RightHandProps = {
-  value: number;
-  label?: string;
-  interactive?: boolean;
-  onToggle?: (index: number) => void;
-  keys?: string[];
-};
+import type { HandProps } from "./HandProps";
 
 export default function RightHand({
   value,
@@ -15,10 +8,11 @@ export default function RightHand({
   interactive = false,
   onToggle,
   keys = [],
-}: RightHandProps) {
+}: HandProps) {
   const config = handConfigs.right;
-  const { fingerNames, fingerOrder, calculateFingers } = config;
-  const fingers = calculateFingers(value);
+  const { fingers: fingerConfigs, fingerOrder, calculateFingers } = config;
+
+  const activeFingers = calculateFingers(value);
 
   return (
     <div className={styles.handVisual}>
@@ -26,12 +20,14 @@ export default function RightHand({
 
       <div className={styles.handDrawing}>
         <div className={styles.palm}>
-          {fingerOrder.map((index) => {
-            const active = fingers[index];
+          {fingerOrder.map((index, displayIndex) => {
+            const finger = fingerConfigs[index];
+            const active = activeFingers[index];
+            const key = keys[displayIndex];
 
             return (
               <button
-                key={fingerNames[index]}
+                key={finger.index}
                 type="button"
                 className={[
                   styles.finger,
@@ -39,18 +35,16 @@ export default function RightHand({
                   active ? styles.fingerActive : "",
                   interactive ? styles.fingerClickable : "",
                 ].join(" ")}
-                onClick={() => interactive && onToggle?.(index)}
+                onClick={() => interactive && onToggle?.(finger.index)}
                 disabled={!interactive}
-                aria-label={`${fingerNames[index]}: ${
+                aria-label={`${finger.name}: ${
                   active ? "aktywny" : "nieaktywny"
                 }`}
                 aria-pressed={active}
-                title={`${fingerNames[index]}${
-                  keys[index] ? ` (${keys[index]})` : ""
-                }`}
+                title={`${finger.name}${key ? ` (${key})` : ""}`}
               >
-                {interactive && keys[index] && (
-                  <span className={styles.fingerKey}>{keys[index]}</span>
+                {interactive && key && (
+                  <span className={styles.fingerKey}>{key}</span>
                 )}
               </button>
             );

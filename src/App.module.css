@@ -4,63 +4,6 @@
   flex-direction: column;
 }
 
-.siteHeader {
-  height: 76px;
-  padding: 0 max(5vw, 24px);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #fff;
-  border-bottom: 1px solid var(--border);
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: Manrope, sans-serif;
-  font-size: 19px;
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  color: inherit;
-  text-decoration: none;
-}
-
-.brandIcon {
-  display: grid;
-  place-items: center;
-  color: var(--blue);
-  background: var(--blue-light);
-  border-radius: 12px;
-  width: 38px;
-  height: 38px;
-}
-
-.mainNav {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.mainNavLink {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 15px;
-  border-radius: 9px;
-  color: var(--muted);
-  font-size: 14px;
-  font-weight: 600;
-  transition: 0.2s;
-  text-decoration: none;
-}
-
-.mainNavLink:hover,
-.mainNavLinkActive {
-  color: var(--blue);
-  background: var(--blue-light);
-}
-
 .homePage,
 .pageContainer {
   width: min(1120px, calc(100% - 40px));

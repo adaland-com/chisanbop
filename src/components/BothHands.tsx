@@ -5,8 +5,6 @@ interface BothHandsProps {
   units: number;
   onToggleTens: (index: number) => void;
   onToggleUnits: (index: number) => void;
-  leftKeys?: string[];
-  rightKeys?: string[];
 }
 
 export default function BothHands({
@@ -14,8 +12,6 @@ export default function BothHands({
   units,
   onToggleTens,
   onToggleUnits,
-  leftKeys = ["Q", "W", "E", "R", "T"],
-  rightKeys = ["A", "S", "D", "F", "G"],
 }: BothHandsProps) {
   return (
     <>
@@ -23,14 +19,13 @@ export default function BothHands({
         side="left"
         value={tens}
         label="Dziesiątki"
-        keys={leftKeys}
         onToggle={onToggleTens}
       />
+
       <InteractiveHandCard
         side="right"
         value={units}
         label="Jedności"
-        keys={rightKeys}
         onToggle={onToggleUnits}
       />
     </>

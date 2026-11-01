@@ -1,34 +1,9 @@
+
 .handVisual {
   display: flex;
   flex-direction: column;
   align-items: center;
   min-width: 0;
-}
-
-.handLeft .finger0 {
-  left: 85px;
-}
-
-.handLeft .finger1 {
-  left: 60px;
-}
-
-.handLeft .finger2 {
-  left: 35px;
-}
-
-.handLeft .finger3 {
-  left: 10px;
-}
-
-.handLeft .finger4 {
-  left: auto;
-  right: -18px;
-  transform: rotate(42deg);
-}
-
-.handLeft .finger4.fingerActive {
-  transform: rotate(42deg) translateY(-3px);
 }
 
 .handLabel {
@@ -46,6 +21,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  overflow: visible;
 }
 
 .palm {
@@ -57,6 +33,7 @@
   border: 2px solid #dfa985;
   border-radius: 42px 42px 25px 25px;
   box-shadow: inset 0 -5px 0 rgba(190, 125, 91, 0.08);
+  overflow: visible;
 }
 
 .finger {
@@ -104,6 +81,55 @@
   transform-origin: bottom center;
 }
 
+.fingerKey {
+  position: absolute;
+  top: -27px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: block;
+  padding: 3px 7px;
+
+  color: #333;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.2;
+  white-space: nowrap;
+
+  z-index: 5;
+  pointer-events: none;
+}
+
+.handLeft .finger0 {
+  left: 85px;
+}
+
+.handLeft .finger1 {
+  left: 60px;
+}
+
+.handLeft .finger2 {
+  left: 35px;
+}
+
+.handLeft .finger3 {
+  left: 10px;
+}
+
+.handLeft .finger4 {
+  left: auto;
+  right: -18px;
+  transform: rotate(42deg);
+}
+
+.handLeft .finger4.fingerActive {
+  transform: rotate(42deg) translateY(-3px);
+}
+
 .fingerActive {
   background: #6685eb;
   border-color: #4568d8;
@@ -122,16 +148,6 @@
 .fingerClickable:focus-visible {
   outline: 3px solid #4568d8;
   outline-offset: 3px;
-}
-
-.fingerKey {
-  position: absolute;
-  top: -22px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #73809a;
-  font-size: 9px;
-  font-weight: 800;
 }
 
 .handDigit {

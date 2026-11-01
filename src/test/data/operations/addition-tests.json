@@ -1,0 +1,68 @@
+
+{
+  "additionTests": [
+    {
+      "description": "13 + 78 - przeniesienie jedności",
+      "a": 13,
+      "b": 78,
+      "expected": 91,
+      "expectedCarry": 1
+    },
+    {
+      "description": "12 + 15 - bez przeniesienia",
+      "a": 12,
+      "b": 15,
+      "expected": 27,
+      "expectedCarry": 0
+    },
+    {
+      "description": "25 + 17 - przeniesienie jedności",
+      "a": 25,
+      "b": 17,
+      "expected": 42,
+      "expectedCarry": 1
+    },
+    {
+      "description": "34 + 26 - pełna dziesiątka",
+      "a": 34,
+      "b": 26,
+      "expected": 60,
+      "expectedCarry": 1
+    },
+    {
+      "description": "48 + 39 - suma jedności wynosi 17",
+      "a": 48,
+      "b": 39,
+      "expected": 87,
+      "expectedCarry": 1
+    },
+    {
+      "description": "56 + 44 - przejście do setki",
+      "a": 56,
+      "b": 44,
+      "expected": 100,
+      "expectedCarry": 1
+    },
+    {
+      "description": "0 + 0",
+      "a": 0,
+      "b": 0,
+      "expected": 0,
+      "expectedCarry": 0
+    },
+    {
+      "description": "90 + 9 - bez przeniesienia",
+      "a": 90,
+      "b": 9,
+      "expected": 99,
+      "expectedCarry": 0
+    },
+    {
+      "description": "99 + 1 - przejście do setki",
+      "a": 99,
+      "b": 1,
+      "expected": 100,
+      "expectedCarry": 1
+    }
+  ]
+}

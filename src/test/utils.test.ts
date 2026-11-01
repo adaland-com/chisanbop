@@ -1,5 +1,27 @@
+
 import { describe, it, expect } from "vitest";
-import { getSteps, toggleDigit } from "../utils";
+import {
+  getSteps,
+  toggleDigit,
+  calculateLeftHandValue,
+} from "../utils";
+
+describe("calculateLeftHandValue", () => {
+  it.each([
+    [0, 0],
+    [1, 10],
+    [2, 20],
+    [3, 30],
+    [4, 40],
+    [5, 50],
+    [6, 60],
+    [7, 70],
+    [8, 80],
+    [9, 90],
+  ])("przelicza %i na %i", (input, expected) => {
+    expect(calculateLeftHandValue(input)).toBe(expected);
+  });
+});
 
 describe("getSteps", () => {
   it("generuje cztery kroki dla działania 7 + 6", () => {
@@ -45,66 +67,112 @@ describe("getSteps", () => {
 
     expect(lastStep.tens * 10 + lastStep.units).toBe(13);
   });
+
+  it("poprawnie wykonuje dodawanie 13 + 78", () => {
+    const steps = getSteps(13, 78);
+    const lastStep = steps[steps.length - 1];
+
+    expect(lastStep.tens).toBe(9);
+    expect(lastStep.units).toBe(1);
+    expect(lastStep.tens * 10 + lastStep.units).toBe(91);
+  });
+
+  it("zapisuje poprawne wartości po każdym kroku 13 + 78", () => {
+    const steps = getSteps(13, 78);
+
+    const values = steps.map(
+      (step) => step.tens * 10 + step.units
+    );
+
+    expect(values).toEqual([13, 83, 93, 91]);
+  });
 });
 
 describe("toggleDigit", () => {
-  it("dodaje 1 dla prawej dłoni (index 0)", () => {
-    expect(toggleDigit(0, 0)).toBe(1);
+  describe("dodawanie i odejmowanie palców", () => {
+    it("dodaje 1 przy aktywacji pierwszego palca", () => {
+      expect(toggleDigit(0, 0)).toBe(1);
+    });
+
+    it("odejmuje 1 przy ponownym kliknięciu aktywnego palca", () => {
+      expect(toggleDigit(1, 0)).toBe(0);
+    });
+
+    it("dodaje kolejny palec do aktualnej wartości", () => {
+      expect(toggleDigit(1, 1)).toBe(2);
+    });
+
+    it("cofa wartość po kliknięciu aktywnego drugiego palca", () => {
+      expect(toggleDigit(2, 1)).toBe(1);
+    });
+
+    it("aktywuje wszystkie cztery palce", () => {
+      expect(toggleDigit(3, 3)).toBe(4);
+    });
+
+    it("cofa ostatni aktywny palec", () => {
+      expect(toggleDigit(4, 3)).toBe(3);
+    });
   });
 
-  it("odejmuje 1 dla prawej dłoni (index 0)", () => {
-    expect(toggleDigit(1, 0)).toBe(0);
+  describe("kciuk", () => {
+    it("dodaje 5 po aktywacji kciuka", () => {
+      expect(toggleDigit(0, 4)).toBe(5);
+    });
+
+    it("odejmuje 5 po ponownym kliknięciu kciuka", () => {
+      expect(toggleDigit(5, 4)).toBe(0);
+    });
+
+    it("aktywuje kciuk przy wartości 4", () => {
+      expect(toggleDigit(4, 4)).toBe(9);
+    });
+
+    it("dezaktywuje kciuk przy wartości 9", () => {
+      expect(toggleDigit(9, 4)).toBe(4);
+    });
   });
 
-  it("dodaje 5 dla prawej dłoni (kciuk)", () => {
-    expect(toggleDigit(0, 4)).toBe(5);
+  describe("granice wartości", () => {
+    it("nie przekracza wartości 9", () => {
+      expect(toggleDigit(9, 3)).toBe(8);
+    });
+
+    it("nie schodzi poniżej 0", () => {
+      expect(toggleDigit(0, 0)).toBe(1);
+    });
+
+    it("nie zmienia wartości dla nieprawidłowego indeksu", () => {
+      expect(toggleDigit(3, 5)).toBe(3);
+    });
+
+    it("nie zmienia wartości dla ujemnego indeksu", () => {
+      expect(toggleDigit(3, -1)).toBe(3);
+    });
   });
 
-  it("odejmuje 5 dla prawej dłoni (kciuk)", () => {
-    expect(toggleDigit(5, 4)).toBe(0);
-  });
+  describe("lewa dłoń – klawisze", () => {
+    it("R aktywuje wskazujący: 0 → 1 (10)", () => {
+      expect(toggleDigit(0, 0)).toBe(1);
+    });
 
-  it("q (index 0) dla lewej dłoni", () => {
-    expect(toggleDigit(0, 0, true)).toBe(1);
-  });
+    it("E po R aktywuje środkowy: 1 → 2 (20)", () => {
+      expect(toggleDigit(1, 1)).toBe(2);
+    });
 
-  it("w (index 1) dla lewej dłoni", () => {
-    expect(toggleDigit(0, 1, true)).toBe(2);
-  });
+    it("ponowne E cofa wartość: 2 → 1 (10)", () => {
+      expect(toggleDigit(2, 1)).toBe(1);
+    });
 
-  it("e (index 2) dla lewej dłoni", () => {
-    expect(toggleDigit(0, 2, true)).toBe(4);
-  });
+    it("R + E daje 20", () => {
+      const afterR = toggleDigit(0, 0);
+      const afterE = toggleDigit(afterR, 1);
 
-  it("r (index 3) dla lewej dłoni", () => {
-    expect(toggleDigit(0, 3, true)).toBe(8);
-  });
+      expect(afterE * 10).toBe(20);
+    });
 
-  it("t (index 4) dla lewej dłoni", () => {
-    expect(toggleDigit(0, 4, true)).toBe(16);
-  });
-
-  it("q+w (1+2=3) dla lewej dłoni", () => {
-    expect(toggleDigit(1, 1, true)).toBe(3);
-  });
-
-  it("q+e (1+4=5) dla lewej dłoni", () => {
-    expect(toggleDigit(1, 2, true)).toBe(5);
-  });
-
-  it("q+r (1+8=9) dla lewej dłoni", () => {
-    expect(toggleDigit(1, 3, true)).toBe(9);
-  });
-
-  it("q+t (1+16=17) dla lewej dłoni", () => {
-    expect(toggleDigit(1, 4, true)).toBe(17);
-  });
-
-  it("w+e (2+4=6) dla lewej dłoni", () => {
-    expect(toggleDigit(2, 2, true)).toBe(6);
-  });
-
-  it("usuwa q z q+w (3-1=2) dla lewej dłoni", () => {
-    expect(toggleDigit(3, 0, true)).toBe(2);
+    it("T aktywuje kciuk: 0 → 5 (50)", () => {
+      expect(toggleDigit(0, 4)).toBe(5);
+    });
   });
 });

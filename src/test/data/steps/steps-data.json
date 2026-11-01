@@ -1,0 +1,56 @@
+
+{
+  "mockSteps": [
+    {
+      "title": "Ustaw pierwszą liczbę",
+      "description": "Ustaw 7 na prawej dłoni",
+      "tens": 0,
+      "units": 7,
+      "detail": "Lewa dłoń: 0, prawa dłoń: 7"
+    },
+    {
+      "title": "Dodaj 10",
+      "description": "Przenieś dziesiątkę na lewą dłoń",
+      "tens": 1,
+      "units": 7,
+      "detail": "Lewa dłoń: 10, prawa dłoń: 7"
+    },
+    {
+      "title": "Odejmij 4",
+      "description": "Zmień prawą dłoń z 7 na 3",
+      "tens": 1,
+      "units": 3,
+      "detail": "Lewa dłoń: 10, prawa dłoń: 3"
+    }
+  ],
+  "additionSteps": [
+    {
+      "title": "Ustaw pierwszą liczbę: 13",
+      "description": "Lewa dłoń: 1 dziesiątka, prawa dłoń: 3 jedności",
+      "tens": 1,
+      "units": 3,
+      "detail": "Wartość początkowa: 13"
+    },
+    {
+      "title": "Dodaj 70",
+      "description": "Dodaj 7 dziesiątek do lewej dłoni",
+      "tens": 8,
+      "units": 3,
+      "detail": "13 + 70 = 83"
+    },
+    {
+      "title": "Dodaj 10",
+      "description": "Dodaj 1 dziesiątkę do lewej dłoni",
+      "tens": 9,
+      "units": 3,
+      "detail": "83 + 10 = 93"
+    },
+    {
+      "title": "Odejmij 2",
+      "description": "Odejmij 2 jedności na prawej dłoni",
+      "tens": 9,
+      "units": 1,
+      "detail": "93 - 2 = 91"
+    }
+  ]
+}
