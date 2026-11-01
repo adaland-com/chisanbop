@@ -10,58 +10,105 @@ export function getSteps(a: number, b: number): Step[] {
   let tens = Math.floor(a / 10);
   let units = a % 10;
 
-  const steps: Step[] = [
-    {
-      title: "Zacznij od pierwszej liczby",
-      description: `Pokaż na dłoniach liczbę ${a}.`,
+  const steps: Step[] = [];
+
+  function addStep(
+    title: string,
+    description: string,
+    detail: string
+  ) {
+    steps.push({
+      title,
+      description,
       tens,
       units,
-      detail: `${tens} dziesiątek i ${units} jedności.`,
-    },
-  ];
+      detail,
+    });
+  }
+
+  addStep(
+    "Ustaw pierwszą liczbę",
+    `Pokaż na dłoniach liczbę ${a}.`,
+    `Lewa dłoń: ${tens * 10}, prawa dłoń: ${units}. Razem: ${tens * 10 + units}.`
+  );
 
   const addedTens = Math.floor(b / 10);
   const addedUnits = b % 10;
 
   if (addedTens > 0) {
     tens += addedTens;
-    steps.push({
-      title: "Dodaj dziesiątki",
-      description: `Dołóż ${addedTens} dziesiątek z drugiej liczby.`,
-      tens,
-      units,
-      detail: `Po dodaniu dziesiątek otrzymujemy ${tens * 10 + units}.`,
-    });
+
+    addStep(
+      "Dodaj dziesiątki",
+      `Dołóż ${addedTens} dziesiątek na lewej dłoni.`,
+      `Lewa dłoń: ${tens * 10}, prawa dłoń: ${units}. Razem: ${tens * 10 + units}.`
+    );
   }
 
   if (addedUnits > 0) {
-    const before = units;
-    const totalUnits = units + addedUnits;
-    const carry = Math.floor(totalUnits / 10);
+    if (units + addedUnits <= 9) {
+      const previousUnits = units;
+      units += addedUnits;
 
-    units = totalUnits % 10;
-    tens += carry;
+      addStep(
+        "Dodaj jedności",
+        `Dodaj ${addedUnits} jedności do ${previousUnits}.`,
+        `Lewa dłoń: ${tens * 10}, prawa dłoń: ${units}. Razem: ${tens * 10 + units}.`
+      );
+    } else {
+      // Przeniesienie jednej dziesiątki.
+      tens += 1;
 
-    steps.push({
-      title: carry ? "Przenieś do dziesiątek" : "Dodaj jedności",
-      description: carry
-        ? `${before} + ${addedUnits} = ${totalUnits}. Dziesięć jedności zamień na jedną dziesiątkę.`
-        : `Dodaj ${addedUnits} jedności do ${before} jedności.`,
-      tens,
-      units,
-      detail: carry
-        ? `Przeniesienie: +1 dziesiątka. Zostaje ${units} jedności.`
-        : `Wynik po dodaniu jedności: ${tens * 10 + units}.`,
-    });
+      addStep(
+        "Dodaj dziesiątkę",
+        "Opuść palec wskazujący lewej dłoni, aby dodać 10.",
+        `Lewa dłoń: ${tens * 10}, prawa dłoń: ${units}. Razem: ${tens * 10 + units}.`
+      );
+
+      const toSubtract = 10 - addedUnits;
+
+      if (units >= 5) {
+        // Najpierw odejmujemy 5 za pomocą kciuka.
+        units -= 5;
+
+        addStep(
+          "Odejmij 5",
+          "Podnieś kciuk prawej dłoni, aby odjąć 5.",
+          `Lewa dłoń: ${tens * 10}, prawa dłoń: ${units}. Razem: ${tens * 10 + units}.`
+        );
+
+        // Następnie korygujemy różnicę.
+        const adjustment = 5 - toSubtract;
+
+        if (adjustment > 0) {
+          units += adjustment;
+
+          addStep(
+            `Dodaj ${adjustment}`,
+            `Opuść ${adjustment} dodatkowy palec na prawej dłoni.`,
+            `Lewa dłoń: ${tens * 10}, prawa dłoń: ${units}. Razem: ${tens * 10 + units}.`
+          );
+        } else if (adjustment < 0) {
+          units += adjustment;
+
+          addStep(
+            `Odejmij ${Math.abs(adjustment)}`,
+            `Podnieś ${Math.abs(adjustment)} dodatkowe palce prawej dłoni.`,
+            `Lewa dłoń: ${tens * 10}, prawa dłoń: ${units}. Razem: ${tens * 10 + units}.`
+          );
+        }
+      } else {
+        // Gdy nie ma 5 jedności do odjęcia, odejmujemy bezpośrednio.
+        units -= toSubtract;
+
+        addStep(
+          `Odejmij ${toSubtract}`,
+          `Odejmij ${toSubtract} jedności na prawej dłoni.`,
+          `Lewa dłoń: ${tens * 10}, prawa dłoń: ${units}. Razem: ${tens * 10 + units}.`
+        );
+      }
+    }
   }
-
-  steps.push({
-    title: "Gotowe!",
-    description: `${a} + ${b} = ${a + b}`,
-    tens: Math.floor((a + b) / 10),
-    units: (a + b) % 10,
-    detail: `Ostateczny wynik to ${a + b}.`,
-  });
 
   return steps;
 }

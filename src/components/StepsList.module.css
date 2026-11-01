@@ -1,0 +1,118 @@
+.allSteps {
+  margin-top: 35px;
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.sectionHeadingH2 {
+  margin: 0;
+  font-family: Manrope, sans-serif;
+  font-size: 21px;
+}
+
+.stepsCount {
+  padding: 7px 11px;
+  color: #68758b;
+  background: #f0f2f7;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.stepsList {
+  display: grid;
+  gap: 9px;
+}
+
+.stepListDetail {
+  color: #64748b;
+  font-size: 0.78rem;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.stepListItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 15px;
+  text-align: left;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.stepListItem:hover {
+  border-color: #b9c8fa;
+  background: #fafbff;
+}
+
+.stepListItemSelected {
+  background: #f0f3ff;
+  border-color: #9eaff2;
+}
+
+.stepListNumber {
+  display: grid;
+  place-items: center;
+  width: 31px;
+  height: 31px;
+  flex: 0 0 31px;
+  color: #6d7b94;
+  background: #eff1f6;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.selected .stepListNumber {
+  color: white;
+  background: var(--blue);
+}
+
+.stepListCopy {
+  display: grid;
+  flex: 1;
+  gap: 4px;
+}
+
+.stepListCopyStrong {
+  font-size: 13px;
+}
+
+.stepListCopySmall {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.stepListValue {
+  min-width: 38px;
+  color: var(--blue);
+  font-size: 19px;
+  font-weight: 800;
+  text-align: right;
+}
+
+.stepListArrow {
+  color: #a5afc0;
+}
+
+@media (max-width: 760px) {
+  .stepListItem {
+    gap: 9px;
+    padding: 11px;
+  }
+
+  .stepListCopySmall {
+    max-width: 190px;
+  }
+}

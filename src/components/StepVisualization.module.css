@@ -1,0 +1,209 @@
+.currentStep {
+  padding: 25px;
+  background: #f8f9fd;
+  border: 1px solid #e9edf5;
+  border-radius: 15px;
+}
+
+.stepTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.stepNumber {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 13px;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.stepTitleRowH2 {
+  margin: 0;
+  font-family: Manrope, sans-serif;
+  font-size: 22px;
+}
+
+.stepDescription {
+  margin: 17px 0 20px;
+  color: #667287;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.visualizationCard {
+  padding: 23px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+}
+
+.visualizationHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  color: #68758b;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.valueBox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 13px;
+  background: var(--blue-light);
+  border: 1px solid #dce4ff;
+  border-radius: 10px;
+}
+
+.valueBoxSpan {
+  color: var(--blue);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.valueBoxStrong {
+  color: var(--blue-dark);
+  font-family: Manrope, sans-serif;
+  font-size: 27px;
+  line-height: 1;
+}
+
+.handsRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 55px;
+  padding: 24px 0 10px;
+}
+
+.plusDivider {
+  color: #a4aec0;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.visualizationDetail {
+  margin: 15px 0 0;
+  padding: 12px 14px;
+  color: #53617a;
+  background: #f5f7fc;
+  border-radius: 8px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.stepNavigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: 0.2s;
+  color: white;
+  background: var(--blue);
+  cursor: pointer;
+}
+
+.primaryButton:hover {
+  background: var(--blue-dark);
+  transform: translateY(-1px);
+}
+
+.primaryButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: 0.2s;
+  color: var(--ink);
+  background: #f0f2f7;
+  cursor: pointer;
+}
+
+.secondaryButton:hover {
+  background: #e5e9f2;
+}
+
+.secondaryButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+@media (max-width: 760px) {
+  .currentStep {
+    padding: 15px;
+  }
+
+  .visualizationCard {
+    padding: 13px;
+  }
+
+  .handsRow {
+    gap: 10px;
+  }
+
+  .stepNavigation {
+    flex-wrap: wrap;
+  }
+
+  .stepNavigation button {
+    flex: 1;
+  }
+
+  .visualizationHeading {
+    align-items: flex-start;
+  }
+
+  .valueBox {
+    gap: 7px;
+    padding: 7px;
+  }
+
+  .valueBoxSpan {
+    max-width: 70px;
+    line-height: 1.3;
+  }
+}
+
+@media (max-width: 390px) {
+  .stepTitleRowH2 {
+    font-size: 18px;
+  }
+
+  .handsRow {
+    transform: scale(0.85);
+  }
+}

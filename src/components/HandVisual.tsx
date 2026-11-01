@@ -1,3 +1,6 @@
+
+import styles from "./HandVisual.module.css";
+
 type HandVisualProps = {
   value: number;
   label?: string;
@@ -6,8 +9,6 @@ type HandVisualProps = {
   keys?: string[];
   side?: "left" | "right";
 };
-
-const fingerNames = ["Wskazujący", "Środkowy", "Serdeczny", "Mały", "Kciuk"];
 
 export default function HandVisual({
   value,
@@ -20,6 +21,22 @@ export default function HandVisual({
   const thumbActive = value >= 5;
   const ones = value % 5;
 
+  // Nazwy palców według ich indeksów logicznych.
+  const fingerNames = [
+    "Wskazujący",
+    "Środkowy",
+    "Serdeczny",
+    "Mały",
+    "Kciuk",
+  ];
+
+  // Kolejność wyświetlania palców.
+  const fingerOrder =
+    side === "left"
+      ? [3, 2, 1, 0, 4]
+      : [4, 0, 1, 2, 3];
+
+  // Aktywność według indeksów logicznych.
   const fingers = [
     ones >= 1,
     ones >= 2,
@@ -29,36 +46,48 @@ export default function HandVisual({
   ];
 
   return (
-    <div className={`hand-visual hand-${side}`}>
-      {label && <div className="hand-label">{label}</div>}
+    <div
+      className={`${styles.handVisual} ${
+        side === "left" ? styles.handLeft : ""
+      }`}
+    >
+      {label && <div className={styles.handLabel}>{label}</div>}
 
-      <div className="hand-drawing">
-        <div className="palm">
-          {fingers.map((active, index) => (
-            <button
-              key={fingerNames[index]}
-              type="button"
-              className={[
-                "finger",
-                `finger-${index}`,
-                active ? "finger-active" : "",
-                interactive ? "finger-clickable" : "",
-              ].join(" ")}
-              onClick={() => interactive && onToggle?.(index)}
-              disabled={!interactive}
-              aria-label={`${fingerNames[index]}: ${active ? "aktywny" : "nieaktywny"}`}
-              aria-pressed={active}
-              title={`${fingerNames[index]}${keys[index] ? ` (${keys[index]})` : ""}`}
-            >
-              {interactive && keys[index] && (
-                <span className="finger-key">{keys[index]}</span>
-              )}
-            </button>
-          ))}
+      <div className={styles.handDrawing}>
+        <div className={styles.palm}>
+          {fingerOrder.map((index) => {
+            const active = fingers[index];
+
+            return (
+              <button
+                key={fingerNames[index]}
+                type="button"
+                className={[
+                  styles.finger,
+                  styles[`finger${index}`],
+                  active ? styles.fingerActive : "",
+                  interactive ? styles.fingerClickable : "",
+                ].join(" ")}
+                onClick={() => interactive && onToggle?.(index)}
+                disabled={!interactive}
+                aria-label={`${fingerNames[index]}: ${
+                  active ? "aktywny" : "nieaktywny"
+                }`}
+                aria-pressed={active}
+                title={`${fingerNames[index]}${
+                  keys[index] ? ` (${keys[index]})` : ""
+                }`}
+              >
+                {interactive && keys[index] && (
+                  <span className={styles.fingerKey}>{keys[index]}</span>
+                )}
+              </button>
+            );
+          })}
         </div>
       </div>
 
-      <div className="hand-digit">{value}</div>
+      <div className={styles.handDigit}>{value}</div>
     </div>
   );
 }

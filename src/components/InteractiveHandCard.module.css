@@ -1,0 +1,25 @@
+.interactiveHandCard {
+  min-width: 0;
+  padding: 22px;
+  background: #fafbfe;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+}
+
+.handCardHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.handCardHeadingH2 {
+  margin: 0;
+  font-family: Manrope, sans-serif;
+  font-size: 19px;
+}
+
+.handCardHeadingStrong {
+  color: var(--blue);
+  font-size: 25px;
+}

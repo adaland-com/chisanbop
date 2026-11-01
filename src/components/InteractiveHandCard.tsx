@@ -1,3 +1,4 @@
+import styles from "./InteractiveHandCard.module.css";
 import HandVisual from "./HandVisual";
 
 interface InteractiveHandCardProps {
@@ -18,13 +19,13 @@ export default function InteractiveHandCard({
   const displayValue = side === "left" ? value * 10 : value;
 
   return (
-    <div className="interactive-hand-card">
-      <div className="hand-card-heading">
+    <div className={styles.interactiveHandCard}>
+      <div className={styles.handCardHeading}>
         <div>
           <span className="eyebrow">{side === "left" ? "LEWA DŁOŃ" : "PRAWA DŁOŃ"}</span>
-          <h2>{label}</h2>
+          <h2 className={styles.handCardHeadingH2}>{label}</h2>
         </div>
-        <strong>{displayValue}</strong>
+        <strong className={styles.handCardHeadingStrong}>{displayValue}</strong>
       </div>
       <HandVisual
         side={side}

@@ -1,3 +1,4 @@
+import styles from "./StepsList.module.css";
 import { ArrowRight } from "lucide-react";
 import type { Step } from "../utils";
 
@@ -9,29 +10,30 @@ interface StepsListProps {
 
 export default function StepsList({ steps, activeStep, onSelectStep }: StepsListProps) {
   return (
-    <section className="all-steps">
-      <div className="section-heading">
+    <section className={styles.allSteps}>
+      <div className={styles.sectionHeading}>
         <div>
           <span className="eyebrow">CAŁE ROZWIĄZANIE</span>
-          <h2>Kroki działania</h2>
+          <h2 className={styles.sectionHeadingH2}>Kroki działania</h2>
         </div>
-        <span className="steps-count">{steps.length} kroki</span>
+        <span className={styles.stepsCount}>{steps.length} kroki</span>
       </div>
 
-      <div className="steps-list">
+      <div className={styles.stepsList}>
         {steps.map((step, index) => (
           <button
-            className={`step-list-item ${index === activeStep ? "selected" : ""} ${index < activeStep ? "completed" : ""}`}
+            className={`${styles.stepListItem} ${index === activeStep ? styles.stepListItemSelected : ""} ${index < activeStep ? "completed" : ""}`}
             key={`${step.title}-${index}`}
             onClick={() => onSelectStep(index)}
           >
-            <span className="step-list-number">{index + 1}</span>
-            <span className="step-list-copy">
-              <strong>{step.title}</strong>
-              <small>{step.description}</small>
+            <span className={`${styles.stepListNumber} ${index === activeStep ? styles.selected : ""}`}>{index + 1}</span>
+            <span className={styles.stepListCopy}>
+              <strong className={styles.stepListCopyStrong}>{step.title}</strong>
+              <small className={styles.stepListCopySmall}>{step.description}</small>
+              <small className={styles.stepListDetail}>{step.detail}</small>
             </span>
-            <span className="step-list-value">{step.tens * 10 + step.units}</span>
-            <ArrowRight className="step-list-arrow" size={18} />
+            <span className={styles.stepListValue}>{step.tens * 10 + step.units}</span>
+            <ArrowRight className={styles.stepListArrow} size={18} />
           </button>
         ))}
       </div>

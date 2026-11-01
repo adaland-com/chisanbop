@@ -1,0 +1,538 @@
+.appShell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.siteHeader {
+  height: 76px;
+  padding: 0 max(5vw, 24px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: Manrope, sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.brandIcon {
+  display: grid;
+  place-items: center;
+  color: var(--blue);
+  background: var(--blue-light);
+  border-radius: 12px;
+  width: 38px;
+  height: 38px;
+}
+
+.mainNav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mainNavLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  border-radius: 9px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.2s;
+  text-decoration: none;
+}
+
+.mainNavLink:hover,
+.mainNavLinkActive {
+  color: var(--blue);
+  background: var(--blue-light);
+}
+
+.homePage,
+.pageContainer {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.homePage {
+  padding: 64px 0 80px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 48px;
+  min-height: 400px;
+}
+
+.heroH1 {
+  margin: 0;
+  font-family: Manrope, sans-serif;
+  font-size: clamp(42px, 5vw, 64px);
+  line-height: 1.08;
+  letter-spacing: -3px;
+}
+
+.heroH1Span {
+  color: var(--blue);
+}
+
+.heroCopyP {
+  max-width: 480px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: 0.2s;
+  color: white;
+  background: var(--blue);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.primaryButton:hover {
+  background: var(--blue-dark);
+  transform: translateY(-1px);
+}
+
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: 0.2s;
+  color: var(--ink);
+  background: #f0f2f7;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.secondaryButton:hover {
+  background: #e5e9f2;
+}
+
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: 0.2s;
+  color: var(--ink);
+  background: #f0f2f7;
+  cursor: pointer;
+}
+
+.iconButton:hover {
+  background: #e5e9f2;
+}
+
+.heroArt {
+  position: relative;
+  min-height: 340px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #eaf0ff;
+  border: 1px solid #dce5ff;
+  border-radius: 24px;
+}
+
+.heroNumber {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  color: #4568d8;
+  font-family: Manrope, sans-serif;
+  font-size: 68px;
+  font-weight: 800;
+  opacity: 0.12;
+}
+
+.heroHands {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+}
+
+.heroCaption {
+  margin-top: 24px;
+  color: #7180a1;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.homeFeatures {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 64px;
+}
+
+.featureCard {
+  padding: 27px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.featureIcon {
+  display: grid;
+  place-items: center;
+  color: var(--blue);
+  background: var(--blue-light);
+  border-radius: 12px;
+  width: 43px;
+  height: 43px;
+}
+
+.featureCardH2 {
+  margin: 17px 0 8px;
+  font-family: Manrope, sans-serif;
+  font-size: 20px;
+}
+
+.featureCardP {
+  min-height: 48px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.featureCardLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.textLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.pageContainer {
+  flex: 1;
+  padding: 48px 0 70px;
+}
+
+.pageHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.pageHeadingH1 {
+  margin: 0;
+  font-family: Manrope, sans-serif;
+  font-size: 34px;
+  letter-spacing: -1.2px;
+}
+
+.pageHeadingP {
+  margin: 7px 0 0;
+  font-size: 14px;
+}
+
+.exercisePanel {
+  padding: 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(30, 50, 90, 0.035);
+}
+
+.exerciseInputRow {
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.exerciseInputRowLabel {
+  display: block;
+  margin-bottom: 9px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.expressionControls {
+  display: flex;
+  gap: 10px;
+}
+
+.expressionControlsInput {
+  width: 220px;
+  height: 46px;
+  padding: 0 14px;
+  color: var(--ink);
+  background: #fafbfe;
+  border: 1px solid #dfe4ee;
+  border-radius: 9px;
+  font-size: 18px;
+  font-weight: 700;
+  outline: none;
+}
+
+.expressionControlsInput:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px #4568d81c;
+}
+
+.errorMessage {
+  margin: 9px 0 0;
+  color: #c44545;
+  font-size: 12px;
+}
+
+.stepProgress {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 25px 0;
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.muted {
+  color: #a1a9b8;
+}
+
+.progressTrack {
+  height: 6px;
+  flex: 1;
+  overflow: hidden;
+  background: #edf0f6;
+  border-radius: 10px;
+}
+
+.progressTrackDiv {
+  height: 100%;
+  background: var(--blue);
+  border-radius: inherit;
+  transition: width 0.25s;
+}
+
+.emptyState {
+  padding: 60px 20px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.emptyStateH2 {
+  color: var(--ink);
+}
+
+.valueDashboard {
+  padding: 28px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(30, 50, 90, 0.035);
+}
+
+.totalValue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+  background: #f0f3ff;
+  border: 1px solid #e0e7ff;
+  border-radius: 14px;
+}
+
+.totalValueSpan {
+  color: var(--blue);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.totalValueStrong {
+  margin: 4px 0;
+  color: var(--blue-dark);
+  font-family: Manrope, sans-serif;
+  font-size: 64px;
+  line-height: 1.1;
+}
+
+.totalValueP {
+  margin: 5px 0 0;
+  color: #77839a;
+  font-size: 12px;
+}
+
+.interactiveHands {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.keyboardHint {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 22px;
+  margin-top: 20px;
+  padding: 15px;
+  color: #788397;
+  background: #f7f8fb;
+  border-radius: 10px;
+  font-size: 11px;
+}
+
+.keyboardHintStrong {
+  color: var(--ink);
+  font-size: 12px;
+}
+
+.siteFooter {
+  margin-top: auto;
+  padding: 24px;
+  color: #9aa3b2;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .siteHeader {
+    height: auto;
+    min-height: 68px;
+    padding: 12px 18px;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .brand {
+    font-size: 16px;
+  }
+
+  .mainNav {
+    gap: 2px;
+  }
+
+  .mainNavLink {
+    padding: 9px;
+    font-size: 0;
+  }
+
+  .mainNavLink svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .homePage {
+    padding-top: 35px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .heroH1 {
+    font-size: 47px;
+  }
+
+  .heroArt {
+    min-height: 290px;
+  }
+
+  .homeFeatures {
+    grid-template-columns: 1fr;
+    margin-top: 35px;
+  }
+
+  .pageContainer {
+    padding-top: 30px;
+  }
+
+  .pageHeading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .pageHeadingH1 {
+    font-size: 29px;
+  }
+
+  .exercisePanel,
+  .valueDashboard {
+    padding: 15px;
+  }
+
+  .interactiveHands {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 390px) {
+  .expressionControlsInput {
+    width: 150px;
+  }
+
+  .expressionControls {
+    flex-wrap: wrap;
+  }
+}
