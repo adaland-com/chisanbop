@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { RotateCcw } from "lucide-react";
-import InteractiveHandCard from "../components/InteractiveHandCard";
-import { toggleDigit } from "../utils";
+import { BothHands } from "../components";
+import { toggleDigit, calculateLeftHandValue } from "../utils";
 import styles from "../App.module.css";
 
 export function ValuePage() {
   const [tens, setTens] = useState(0);
   const [units, setUnits] = useState(0);
 
-  const value = tens * 10 + units;
+  const tensValue = calculateLeftHandValue(tens);
+  const value = tensValue + units;
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
@@ -19,7 +20,7 @@ export function ValuePage() {
 
       if (leftKeys.includes(key)) {
         event.preventDefault();
-        setTens((v) => toggleDigit(v, leftKeys.indexOf(key)));
+        setTens((v) => toggleDigit(v, leftKeys.indexOf(key), true));
       }
       if (rightKeys.includes(key)) {
         event.preventDefault();
@@ -56,23 +57,15 @@ export function ValuePage() {
         <div className={styles.totalValue}>
           <span className={styles.totalValueSpan}>AKTUALNA WARTOŚĆ</span>
           <strong className={styles.totalValueStrong}>{value}</strong>
-          <p className={styles.totalValueP}>{tens} dziesiątek + {units} jedności</p>
+          <p className={styles.totalValueP}>{tensValue} dziesiątek + {units} jedności</p>
         </div>
 
         <div className={styles.interactiveHands}>
-          <InteractiveHandCard
-            side="left"
-            value={tens}
-            label="Dziesiątki"
-            keys={["Q", "W", "E", "R", "T"]}
-            onToggle={(i) => setTens((v) => toggleDigit(v, i))}
-          />
-          <InteractiveHandCard
-            side="right"
-            value={units}
-            label="Jedności"
-            keys={["A", "S", "D", "F", "G"]}
-            onToggle={(i) => setUnits((v) => toggleDigit(v, i))}
+          <BothHands
+            tens={tens}
+            units={units}
+            onToggleTens={(i) => setTens((v) => toggleDigit(v, i, true))}
+            onToggleUnits={(i) => setUnits((v) => toggleDigit(v, i))}
           />
         </div>
 

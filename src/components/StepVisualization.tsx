@@ -1,6 +1,6 @@
 import styles from "./StepVisualization.module.css";
 import { ArrowLeft, ArrowRight, Shuffle } from "lucide-react";
-import HandVisual from "./HandVisual";
+import { BothHandsDisplay } from "./index";
 import type { Step } from "../utils";
 
 interface StepVisualizationProps {
@@ -40,9 +40,12 @@ export default function StepVisualization({
           </div>
         </div>
         <div className={styles.handsRow}>
-          <HandVisual side="left" value={step.tens} label="Lewa dłoń · dziesiątki" />
-          <div className={styles.plusDivider}>+</div>
-          <HandVisual side="right" value={step.units} label="Prawa dłoń · jedności" />
+          <BothHandsDisplay
+            tens={step.tens}
+            units={step.units}
+            leftLabel="Lewa dłoń · dziesiątki"
+            rightLabel="Prawa dłoń · jedności"
+          />
         </div>
         <p className={styles.visualizationDetail}>{step.detail}</p>
       </div>

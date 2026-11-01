@@ -37,13 +37,21 @@ export default function HandVisual({
       : [4, 0, 1, 2, 3];
 
   // Aktywność według indeksów logicznych.
-  const fingers = [
-    ones >= 1,
-    ones >= 2,
-    ones >= 3,
-    ones >= 4,
-    thumbActive,
-  ];
+  const fingers = side === "left"
+    ? [
+        value >= 1,
+        value >= 2,
+        value >= 3,
+        value >= 4,
+        value >= 5,
+      ]
+    : [
+        ones >= 1,
+        ones >= 2,
+        ones >= 3,
+        ones >= 4,
+        thumbActive,
+      ];
 
   return (
     <div

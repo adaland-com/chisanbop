@@ -92,11 +92,13 @@ describe("StepsList", () => {
       />
     );
 
-    const items = container.querySelectorAll(".step-list-item");
+    const item0 = container.querySelector('[data-testid="step-item-0"]');
+    const item1 = container.querySelector('[data-testid="step-item-1"]');
+    const item2 = container.querySelector('[data-testid="step-item-2"]');
 
-    expect(items[0]).not.toHaveClass("selected");
-    expect(items[1]).toHaveClass("selected");
-    expect(items[2]).not.toHaveClass("selected");
+    expect(item0?.className).not.toContain("stepListItemSelected");
+    expect(item1?.className).toContain("stepListItemSelected");
+    expect(item2?.className).not.toContain("stepListItemSelected");
   });
 
   it("oznacza wcześniejsze kroki klasą completed", () => {
@@ -108,11 +110,13 @@ describe("StepsList", () => {
       />
     );
 
-    const items = container.querySelectorAll(".step-list-item");
+    const item0 = container.querySelector('[data-testid="step-item-0"]');
+    const item1 = container.querySelector('[data-testid="step-item-1"]');
+    const item2 = container.querySelector('[data-testid="step-item-2"]');
 
-    expect(items[0]).toHaveClass("completed");
-    expect(items[1]).toHaveClass("completed");
-    expect(items[2]).not.toHaveClass("completed");
+    expect(item0?.className).toContain("completed");
+    expect(item1?.className).toContain("completed");
+    expect(item2?.className).not.toContain("completed");
   });
 
   it("wywołuje onSelectStep z indeksem klikniętego kroku", async () => {

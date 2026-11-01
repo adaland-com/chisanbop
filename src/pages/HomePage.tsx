@@ -1,7 +1,7 @@
 
 import { ArrowRight, GraduationCap } from "lucide-react";
 import { Link } from "react-router-dom";
-import { HandVisual } from "../components";
+import { LeftHand, RightHand } from "../components";
 
 import styles from "../App.module.css";
 
@@ -29,8 +29,8 @@ export function HomePage() {
         <div className={styles.heroArt}>
           <div className={styles.heroNumber}>25</div>
           <div className={styles.heroHands}>
-            <HandVisual value={2} label="Dziesiątki" />
-            <HandVisual value={5} label="Jedności" />
+            <LeftHand value={2} label="Dziesiątki" />
+            <RightHand value={5} label="Jedności" />
           </div>
           <span className={styles.heroCaption}>Liczby zapisane na dłoniach</span>
         </div>

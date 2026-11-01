@@ -22,7 +22,8 @@ export default function StepsList({ steps, activeStep, onSelectStep }: StepsList
       <div className={styles.stepsList}>
         {steps.map((step, index) => (
           <button
-            className={`${styles.stepListItem} ${index === activeStep ? styles.stepListItemSelected : ""} ${index < activeStep ? "completed" : ""}`}
+            data-testid={`step-item-${index}`}
+            className={`${styles.stepListItem} ${index === activeStep ? styles.stepListItemSelected : ""} ${index < activeStep ? styles.completed : ""}`}
             key={`${step.title}-${index}`}
             onClick={() => onSelectStep(index)}
           >

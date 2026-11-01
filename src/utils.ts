@@ -1,3 +1,11 @@
+export function calculateLeftHandValue(tens: number): number {
+  return ((tens & 1) ? 10 : 0) +
+         ((tens & 2) ? 10 : 0) +
+         ((tens & 4) ? 10 : 0) +
+         ((tens & 8) ? 10 : 0) +
+         ((tens & 16) ? 50 : 0);
+}
+
 export type Step = {
   title: string;
   description: string;
@@ -26,10 +34,12 @@ export function getSteps(a: number, b: number): Step[] {
     });
   }
 
+  const tensDisplay = calculateLeftHandValue(tens);
+
   addStep(
     "Ustaw pierwszą liczbę",
     `Pokaż na dłoniach liczbę ${a}.`,
-    `Lewa dłoń: ${tens * 10}, prawa dłoń: ${units}. Razem: ${tens * 10 + units}.`
+    `Lewa dłoń: ${tensDisplay}, prawa dłoń: ${units}. Razem: ${tensDisplay + units}.`
   );
 
   const addedTens = Math.floor(b / 10);
@@ -41,7 +51,7 @@ export function getSteps(a: number, b: number): Step[] {
     addStep(
       "Dodaj dziesiątki",
       `Dołóż ${addedTens} dziesiątek na lewej dłoni.`,
-      `Lewa dłoń: ${tens * 10}, prawa dłoń: ${units}. Razem: ${tens * 10 + units}.`
+      `Lewa dłoń: ${calculateLeftHandValue(tens)}, prawa dłoń: ${units}. Razem: ${calculateLeftHandValue(tens) + units}.`
     );
   }
 
@@ -53,7 +63,7 @@ export function getSteps(a: number, b: number): Step[] {
       addStep(
         "Dodaj jedności",
         `Dodaj ${addedUnits} jedności do ${previousUnits}.`,
-        `Lewa dłoń: ${tens * 10}, prawa dłoń: ${units}. Razem: ${tens * 10 + units}.`
+        `Lewa dłoń: ${calculateLeftHandValue(tens)}, prawa dłoń: ${units}. Razem: ${calculateLeftHandValue(tens) + units}.`
       );
     } else {
       // Przeniesienie jednej dziesiątki.
@@ -62,7 +72,7 @@ export function getSteps(a: number, b: number): Step[] {
       addStep(
         "Dodaj dziesiątkę",
         "Opuść palec wskazujący lewej dłoni, aby dodać 10.",
-        `Lewa dłoń: ${tens * 10}, prawa dłoń: ${units}. Razem: ${tens * 10 + units}.`
+        `Lewa dłoń: ${calculateLeftHandValue(tens)}, prawa dłoń: ${units}. Razem: ${calculateLeftHandValue(tens) + units}.`
       );
 
       const toSubtract = 10 - addedUnits;
@@ -74,7 +84,7 @@ export function getSteps(a: number, b: number): Step[] {
         addStep(
           "Odejmij 5",
           "Podnieś kciuk prawej dłoni, aby odjąć 5.",
-          `Lewa dłoń: ${tens * 10}, prawa dłoń: ${units}. Razem: ${tens * 10 + units}.`
+          `Lewa dłoń: ${calculateLeftHandValue(tens)}, prawa dłoń: ${units}. Razem: ${calculateLeftHandValue(tens) + units}.`
         );
 
         // Następnie korygujemy różnicę.
@@ -86,7 +96,7 @@ export function getSteps(a: number, b: number): Step[] {
           addStep(
             `Dodaj ${adjustment}`,
             `Opuść ${adjustment} dodatkowy palec na prawej dłoni.`,
-            `Lewa dłoń: ${tens * 10}, prawa dłoń: ${units}. Razem: ${tens * 10 + units}.`
+            `Lewa dłoń: ${calculateLeftHandValue(tens)}, prawa dłoń: ${units}. Razem: ${calculateLeftHandValue(tens) + units}.`
           );
         } else if (adjustment < 0) {
           units += adjustment;
@@ -94,7 +104,7 @@ export function getSteps(a: number, b: number): Step[] {
           addStep(
             `Odejmij ${Math.abs(adjustment)}`,
             `Podnieś ${Math.abs(adjustment)} dodatkowe palce prawej dłoni.`,
-            `Lewa dłoń: ${tens * 10}, prawa dłoń: ${units}. Razem: ${tens * 10 + units}.`
+            `Lewa dłoń: ${calculateLeftHandValue(tens)}, prawa dłoń: ${units}. Razem: ${calculateLeftHandValue(tens) + units}.`
           );
         }
       } else {
@@ -104,7 +114,7 @@ export function getSteps(a: number, b: number): Step[] {
         addStep(
           `Odejmij ${toSubtract}`,
           `Odejmij ${toSubtract} jedności na prawej dłoni.`,
-          `Lewa dłoń: ${tens * 10}, prawa dłoń: ${units}. Razem: ${tens * 10 + units}.`
+          `Lewa dłoń: ${calculateLeftHandValue(tens)}, prawa dłoń: ${units}. Razem: ${calculateLeftHandValue(tens) + units}.`
         );
       }
     }
@@ -113,9 +123,17 @@ export function getSteps(a: number, b: number): Step[] {
   return steps;
 }
 
-export function toggleDigit(value: number, index: number) {
-  const isThumb = index === 4;
-  const isActive = isThumb ? value >= 5 : value % 5 > index;
-  const next = value + (isActive ? (isThumb ? -5 : -1) : (isThumb ? 5 : 1));
-  return next >= 0 && next <= 9 ? next : value;
+export function toggleDigit(value: number, index: number, isLeftHand: boolean = false) {
+  if (isLeftHand) {
+    // Left hand: toggle individual finger using bitmask
+    // q=1, w=2, e=4, r=8, t=16
+    const bit = 1 << index;
+    return value ^ bit;
+  } else {
+    // Right hand: standard Chisanbop (thumb=5, others=1-4)
+    const isThumb = index === 4;
+    const isActive = isThumb ? value >= 5 : value % 5 > index;
+    const next = value + (isActive ? (isThumb ? -5 : -1) : (isThumb ? 5 : 1));
+    return next >= 0 && next <= 9 ? next : value;
+  }
 }

@@ -60,6 +60,10 @@
   border-color: #9eaff2;
 }
 
+.completed {
+  opacity: 0.6;
+}
+
 .stepListNumber {
   display: grid;
   place-items: center;

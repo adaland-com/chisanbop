@@ -5,6 +5,22 @@
   min-width: 0;
 }
 
+.handLeft .finger0 {
+  left: 85px;
+}
+
+.handLeft .finger1 {
+  left: 60px;
+}
+
+.handLeft .finger2 {
+  left: 35px;
+}
+
+.handLeft .finger3 {
+  left: 10px;
+}
+
 .handLeft .finger4 {
   left: auto;
   right: -18px;
