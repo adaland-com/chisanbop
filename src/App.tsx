@@ -6,9 +6,11 @@ import {
 } from "react-router-dom";
 import styles from "./App.module.css";
 import { Header } from "./layout";
+import Footer from "./layout/footer/Footer";
 import { HomePage, PractisePage, ValuePage } from "./pages";
 
 export default function App() {
+
   return (
     <BrowserRouter>
       <div className={styles.appShell}>
@@ -19,7 +21,7 @@ export default function App() {
           <Route path="/value" element={<ValuePage />} />
           <Route path="*" element={<HomePage />} />
         </Routes>
-        <footer className={styles.siteFooter}>Chisanbop · Nauka liczenia na palcach</footer>
+        <Footer />
       </div>
     </BrowserRouter>
   );

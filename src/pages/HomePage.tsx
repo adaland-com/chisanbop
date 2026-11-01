@@ -3,7 +3,7 @@ import { ArrowRight, GraduationCap } from "lucide-react";
 import { Link } from "react-router-dom";
 import { LeftHand, RightHand } from "../components";
 
-import styles from "../App.module.css";
+import styles from "./HomePage.module.css";
 
 export function HomePage() {
   return (

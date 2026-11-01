@@ -1,0 +1,198 @@
+.pageContainer {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  flex: 1;
+  padding: 48px 0 70px;
+}
+
+.pageHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.pageHeadingH1 {
+  margin: 0;
+  font-family: Manrope, sans-serif;
+  font-size: 34px;
+  letter-spacing: -1.2px;
+}
+
+.pageHeadingP {
+  margin: 7px 0 0;
+  font-size: 14px;
+}
+
+.textLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.exercisePanel {
+  padding: 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(30, 50, 90, 0.035);
+}
+
+.exerciseInputRow {
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.exerciseInputRowLabel {
+  display: block;
+  margin-bottom: 9px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.expressionControls {
+  display: flex;
+  gap: 10px;
+}
+
+.expressionControlsInput {
+  width: 220px;
+  height: 46px;
+  padding: 0 14px;
+  color: var(--ink);
+  background: #fafbfe;
+  border: 1px solid #dfe4ee;
+  border-radius: 9px;
+  font-size: 18px;
+  font-weight: 700;
+  outline: none;
+}
+
+.expressionControlsInput:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px #4568d81c;
+}
+
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: 0.2s;
+  color: var(--ink);
+  background: #f0f2f7;
+  cursor: pointer;
+}
+
+.iconButton:hover {
+  background: #e5e9f2;
+}
+
+.errorMessage {
+  margin: 9px 0 0;
+  color: #c44545;
+  font-size: 12px;
+}
+
+.stepProgress {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 25px 0;
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.muted {
+  color: #a1a9b8;
+}
+
+.progressTrack {
+  height: 6px;
+  flex: 1;
+  overflow: hidden;
+  background: #edf0f6;
+  border-radius: 10px;
+}
+
+.progressTrackDiv {
+  height: 100%;
+  background: var(--blue);
+  border-radius: inherit;
+  transition: width 0.25s;
+}
+
+.emptyState {
+  padding: 60px 20px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.emptyStateH2 {
+  color: var(--ink);
+}
+
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: 0.2s;
+  color: white;
+  background: var(--blue);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.primaryButton:hover {
+  background: var(--blue-dark);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 760px) {
+  .pageContainer {
+    padding-top: 30px;
+  }
+
+  .pageHeading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .pageHeadingH1 {
+    font-size: 29px;
+  }
+
+  .exercisePanel {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 390px) {
+  .expressionControlsInput {
+    width: 150px;
+  }
+
+  .expressionControls {
+    flex-wrap: wrap;
+  }
+}

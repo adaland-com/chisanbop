@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Hand, Shuffle, Calculator } from "lucide-react";
 import { StepVisualization, StepsList } from "../components";
 import { getSteps } from "../utils";
-import styles from "../App.module.css";
+import styles from "./PractisePage.module.css";
 
 export function PractisePage() {
   const [expression, setExpression] = useState("7 + 6");

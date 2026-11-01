@@ -6,7 +6,7 @@ import {
   calculateLeftHandValue,
 } from "../utils";
 import { handConfigs } from "../components/HandConfig";
-import styles from "../App.module.css";
+import styles from "./ValuePage.module.css";
 
 export function ValuePage() {
   const [tens, setTens] = useState(0);

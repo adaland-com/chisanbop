@@ -1,0 +1,34 @@
+.copyright {
+  margin-top: auto;
+  padding: 24px;
+  color: #9aa3b2;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  text-align: center;
+}
+
+.mxAuto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.heart {
+  color: #e25555;
+}
+
+.additionalInfo {
+  margin-top: 12px;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.socialLogo {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}

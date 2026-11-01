@@ -1,0 +1,135 @@
+.pageContainer {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  flex: 1;
+  padding: 48px 0 70px;
+}
+
+.pageHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.pageHeadingH1 {
+  margin: 0;
+  font-family: Manrope, sans-serif;
+  font-size: 34px;
+  letter-spacing: -1.2px;
+}
+
+.pageHeadingP {
+  margin: 7px 0 0;
+  font-size: 14px;
+}
+
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: 0.2s;
+  color: var(--ink);
+  background: #f0f2f7;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.secondaryButton:hover {
+  background: #e5e9f2;
+}
+
+.valueDashboard {
+  padding: 28px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(30, 50, 90, 0.035);
+}
+
+.totalValue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+  background: #f0f3ff;
+  border: 1px solid #e0e7ff;
+  border-radius: 14px;
+}
+
+.totalValueSpan {
+  color: var(--blue);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.totalValueStrong {
+  margin: 4px 0;
+  color: var(--blue-dark);
+  font-family: Manrope, sans-serif;
+  font-size: 64px;
+  line-height: 1.1;
+}
+
+.totalValueP {
+  margin: 5px 0 0;
+  color: #77839a;
+  font-size: 12px;
+}
+
+.interactiveHands {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.keyboardHint {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 22px;
+  margin-top: 20px;
+  padding: 15px;
+  color: #788397;
+  background: #f7f8fb;
+  border-radius: 10px;
+  font-size: 11px;
+}
+
+.keyboardHintStrong {
+  color: var(--ink);
+  font-size: 12px;
+}
+
+@media (max-width: 760px) {
+  .pageContainer {
+    padding-top: 30px;
+  }
+
+  .pageHeading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .pageHeadingH1 {
+    font-size: 29px;
+  }
+
+  .valueDashboard {
+    padding: 15px;
+  }
+
+  .interactiveHands {
+    grid-template-columns: 1fr;
+  }
+}
