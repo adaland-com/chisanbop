@@ -17,9 +17,8 @@ describe("HandVisual - interakcja", () => {
       />
     );
 
-    await user.click(
-      screen.getByRole("button", { name: /wskazujący/i })
-    );
+    const buttons = screen.getAllByRole("button");
+    await user.click(buttons[3]);
 
     expect(onToggle).toHaveBeenCalledWith(0);
   });

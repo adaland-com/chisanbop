@@ -3,8 +3,7 @@ import { describe, it, expect } from "vitest";
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom/vitest";
 
-import BothHands from "../../../components/BothHands";
-import { handConfigs } from "../../../types/HandConfig";
+import { BothHands, handConfigs } from "../../components";
 import testCases from "../data/highlighting/addition-tests.json";
 
 describe("Wyświetlanie wyniku dodawania na dłoniach", () => {

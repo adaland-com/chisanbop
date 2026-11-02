@@ -2,9 +2,7 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 
-import LeftHand from "../../components/LeftHand";
-import RightHand from "../../components/RightHand";
-import { handConfigs } from "../../types/HandConfig";
+import { LeftHand, RightHand, handConfigs } from "../components";
 
 import testCases from "./data/highlighting/hand-positions.test.json";
 

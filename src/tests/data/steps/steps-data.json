@@ -2,55 +2,76 @@
 {
   "mockSteps": [
     {
-      "title": "Ustaw pierwszą liczbę",
-      "description": "Ustaw 7 na prawej dłoni",
+      "titleKey": "Ustaw pierwszą liczbę",
+      "titleParams": {},
+      "descriptionKey": "Ustaw 7 na prawej dłoni",
+      "descriptionParams": {},
+      "detailKey": "Lewa dłoń: 0, prawa dłoń: 7",
+      "detailParams": {},
       "tens": 0,
-      "units": 7,
-      "detail": "Lewa dłoń: 0, prawa dłoń: 7"
+      "units": 7
     },
     {
-      "title": "Dodaj 10",
-      "description": "Przenieś dziesiątkę na lewą dłoń",
+      "titleKey": "Dodaj 10",
+      "titleParams": {},
+      "descriptionKey": "Przenieś dziesiątkę na lewą dłoń",
+      "descriptionParams": {},
+      "detailKey": "Lewa dłoń: 10, prawa dłoń: 7",
+      "detailParams": {},
       "tens": 1,
-      "units": 7,
-      "detail": "Lewa dłoń: 10, prawa dłoń: 7"
+      "units": 7
     },
     {
-      "title": "Odejmij 4",
-      "description": "Zmień prawą dłoń z 7 na 3",
+      "titleKey": "Odejmij 4",
+      "titleParams": {},
+      "descriptionKey": "Zmień prawą dłoń z 7 na 3",
+      "descriptionParams": {},
+      "detailKey": "Lewa dłoń: 10, prawa dłoń: 3",
+      "detailParams": {},
       "tens": 1,
-      "units": 3,
-      "detail": "Lewa dłoń: 10, prawa dłoń: 3"
+      "units": 3
     }
   ],
   "additionSteps": [
     {
-      "title": "Ustaw pierwszą liczbę: 13",
-      "description": "Lewa dłoń: 1 dziesiątka, prawa dłoń: 3 jedności",
+      "titleKey": "Ustaw pierwszą liczbę: 13",
+      "titleParams": {},
+      "descriptionKey": "Lewa dłoń: 1 dziesiątka, prawa dłoń: 3 jedności",
+      "descriptionParams": {},
+      "detailKey": "Wartość początkowa: 13",
+      "detailParams": {},
       "tens": 1,
-      "units": 3,
-      "detail": "Wartość początkowa: 13"
+      "units": 3
     },
     {
-      "title": "Dodaj 70",
-      "description": "Dodaj 7 dziesiątek do lewej dłoni",
+      "titleKey": "Dodaj 70",
+      "titleParams": {},
+      "descriptionKey": "Dodaj 7 dziesiątek do lewej dłoni",
+      "descriptionParams": {},
+      "detailKey": "13 + 70 = 83",
+      "detailParams": {},
       "tens": 8,
-      "units": 3,
-      "detail": "13 + 70 = 83"
+      "units": 3
     },
     {
-      "title": "Dodaj 10",
-      "description": "Dodaj 1 dziesiątkę do lewej dłoni",
+      "titleKey": "Dodaj 10",
+      "titleParams": {},
+      "descriptionKey": "Dodaj 1 dziesiątkę do lewej dłoni",
+      "descriptionParams": {},
+      "detailKey": "83 + 10 = 93",
+      "detailParams": {},
       "tens": 9,
-      "units": 3,
-      "detail": "83 + 10 = 93"
+      "units": 3
     },
     {
-      "title": "Odejmij 2",
-      "description": "Odejmij 2 jedności na prawej dłoni",
+      "titleKey": "Odejmij 2",
+      "titleParams": {},
+      "descriptionKey": "Odejmij 2 jedności na prawej dłoni",
+      "descriptionParams": {},
+      "detailKey": "93 - 2 = 91",
+      "detailParams": {},
       "tens": 9,
-      "units": 1,
-      "detail": "93 - 2 = 91"
+      "units": 1
     }
   ]
 }

@@ -29,7 +29,7 @@ describe("getSteps", () => {
 
     expect(steps).toHaveLength(4);
     expect(steps[0].titleKey).toBe("steps.setFirstNumber");
-    expect(steps[1].titleKey).toBe("steps.addTens");
+    expect(steps[1].titleKey).toBe("steps.addTen");
   });
 
   it("ustawia pierwszą liczbę na prawej dłoni", () => {
