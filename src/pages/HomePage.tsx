@@ -22,7 +22,7 @@ export function HomePage() {
             <Link to="/practise" className={styles.primaryButton}>
               {t("home.startPractise")} <ArrowRight size={18} />
             </Link>
-            <Link to="/check" className={styles.secondaryButton}>
+            <Link to="/value" className={styles.secondaryButton}>
               {t("home.openHands")}
             </Link>
           </div>
@@ -49,7 +49,7 @@ export function HomePage() {
           <span className={styles.featureIcon}><GraduationCap /></span>
           <h2 className={styles.featureCardH2}>{t("home.checkValueTitle")}</h2>
           <p className={styles.featureCardP}>{t("home.checkValueDescription")}</p>
-          <Link to="/check" className={styles.featureCardLink}>{t("home.checkValueLink")} <ArrowRight size={16} /></Link>
+          <Link to="/value" className={styles.featureCardLink}>{t("home.checkValueLink")} <ArrowRight size={16} /></Link>
         </article>
       </section>
     </main>

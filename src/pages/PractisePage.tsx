@@ -119,7 +119,7 @@ export function PractisePage() {
                     </p>
                 </div>
 
-                <Link to="/check" className={styles.textLink}>
+                <Link to="/value" className={styles.textLink}>
                     <Hand size={18} />
                     {t("practice.openHands")}
                 </Link>
