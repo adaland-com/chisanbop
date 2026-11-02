@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import { RotateCcw } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { BothHands } from "../components";
 import {
   toggleDigit,
   calculateLeftHandValue,
-} from "../utils";
-import { handConfigs } from "../components/HandConfig";
+} from "../logic/utils";
+import { handConfigs } from "../types/HandConfig";
 import styles from "./ValuePage.module.css";
 
 export function ValuePage() {
+  const { t } = useTranslation();
   const [tens, setTens] = useState(0);
   const [units, setUnits] = useState(0);
 
@@ -80,16 +82,15 @@ export function ValuePage() {
       <div className={styles.pageHeading}>
         <div>
           <span className="eyebrow">
-            INTERAKTYWNA WIZUALIZACJA
+            {t("value.eyebrow")}
           </span>
 
           <h1 className={styles.pageHeadingH1}>
-            Wartość na dłoniach
+            {t("value.title")}
           </h1>
 
           <p className={styles.pageHeadingP}>
-            Kliknij palce lub użyj skrótów klawiaturowych,
-            aby zmienić liczbę.
+            {t("value.subtitle")}
           </p>
         </div>
 
@@ -99,14 +100,14 @@ export function ValuePage() {
           onClick={reset}
         >
           <RotateCcw size={17} />
-          Wyzeruj
+          {t("value.reset")}
         </button>
       </div>
 
       <section className={styles.valueDashboard}>
         <div className={styles.totalValue}>
           <span className={styles.totalValueSpan}>
-            AKTUALNA WARTOŚĆ
+            {t("value.currentValue")}
           </span>
 
           <strong className={styles.totalValueStrong}>
@@ -114,7 +115,7 @@ export function ValuePage() {
           </strong>
 
           <p className={styles.totalValueP}>
-            {tensValue} dziesiątek + {units} jedności
+            {t("value.tensUnits", { tensValue, units })}
           </p>
         </div>
 
@@ -133,12 +134,12 @@ export function ValuePage() {
 
         <div className={styles.keyboardHint}>
           <strong className={styles.keyboardHintStrong}>
-            Skróty klawiaturowe
+            {t("value.keyboardShortcuts")}
           </strong>
 
-          <span>{leftKeyboard} – lewa dłoń</span>
-          <span>{rightKeyboard} – prawa dłoń</span>
-          <span>ESC – wyzeruj obie dłonie</span>
+          <span>{leftKeyboard} – {t("value.leftHand")}</span>
+          <span>{rightKeyboard} – {t("value.rightHand")}</span>
+          <span>ESC – {t("value.resetBoth")}</span>
         </div>
       </section>
     </main>

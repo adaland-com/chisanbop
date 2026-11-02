@@ -4,7 +4,7 @@ import {
   getSteps,
   toggleDigit,
   calculateLeftHandValue,
-} from "../utils";
+} from "../logic/utils";
 
 describe("calculateLeftHandValue", () => {
   it.each([
@@ -28,6 +28,8 @@ describe("getSteps", () => {
     const steps = getSteps(7, 6);
 
     expect(steps).toHaveLength(4);
+    expect(steps[0].titleKey).toBe("steps.setFirstNumber");
+    expect(steps[1].titleKey).toBe("steps.addTens");
   });
 
   it("ustawia pierwszą liczbę na prawej dłoni", () => {
@@ -55,10 +57,11 @@ describe("getSteps", () => {
     const steps = getSteps(7, 6);
 
     const values = steps.map(
-      (step) => step.tens * 10 + step.units
+      (step: { tens: number; units: number }) => step.tens * 10 + step.units
     );
 
     expect(values).toEqual([7, 17, 12, 13]);
+    expect(steps[0].titleParams).toEqual({ a: 7 });
   });
 
   it("ostatni krok zawiera poprawny wynik dodawania", () => {
@@ -81,7 +84,7 @@ describe("getSteps", () => {
     const steps = getSteps(13, 78);
 
     const values = steps.map(
-      (step) => step.tens * 10 + step.units
+      (step: { tens: number; units: number }) => step.tens * 10 + step.units
     );
 
     expect(values).toEqual([13, 83, 93, 91]);

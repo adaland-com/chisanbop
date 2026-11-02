@@ -1,0 +1,99 @@
+{
+  "navigation": {
+    "home": "Strona główna",
+    "practise": "Ćwicz",
+    "check": "Sprawdź"
+  },
+  "practice": {
+    "title": "Poćwicz dodawanie",
+    "subtitle": "Obserwuj, jak zmieniają się liczby na dłoniach.",
+    "yourExpression": "Twoje działanie",
+    "random": "Losuj",
+    "yourAnswer": "Twoja odpowiedź",
+    "enterResult": "Wpisz wynik",
+    "checkAnswer": "Sprawdź odpowiedź",
+    "showSteps": "Pokaż przebieg",
+    "hideSteps": "Ukryj przebieg",
+    "stepsTitle": "Przebieg działania",
+    "tryYourself": "Spróbuj samodzielnie!",
+    "correct": "Świetnie! Poprawna odpowiedź.",
+    "incorrect": "Nie tym razem. Spróbuj ponownie!",
+    "empty": "Wpisz odpowiedź przed sprawdzeniem."
+  },
+  "home": {
+    "eyebrow": "MATEMATYKA NA PALCACH",
+    "title": "Policz to",
+    "titleSpan": "na palcach.",
+    "subtitle": "Poznaj Chisanbop – prosty sposób na liczenie i dodawanie przy użyciu obu dłoni.",
+    "startPractise": "Zacznij ćwiczyć",
+    "openHands": "Otwórz dłonie",
+    "tens": "Dziesiątki",
+    "units": "Jedności",
+    "heroCaption": "Liczby zapisane na dłoniach",
+    "practiceTitle": "Poćwicz",
+    "practiceDescription": "Przejdź przez dodawanie krok po kroku i obserwuj zmiany na dłoniach.",
+    "practiceLink": "Przejdź do ćwiczeń",
+    "checkValueTitle": "Sprawdź wartość",
+    "checkValueDescription": "Klikaj palce i zobacz, jak zmienia się liczba od 0 do 99.",
+    "checkValueLink": "Otwórz wizualizację"
+  },
+  "value": {
+    "eyebrow": "INTERAKTYWNA WIZUALIZACJA",
+    "title": "Wartość na dłoniach",
+    "subtitle": "Kliknij palce lub użyj skrótów klawiaturowych, aby zmienić liczbę.",
+    "reset": "Wyzeruj",
+    "currentValue": "AKTUALNA WARTOŚĆ",
+    "tensUnits": "{{tensValue}} dziesiątek + {{units}} jedności",
+    "keyboardShortcuts": "Skróty klawiaturowe",
+    "leftHand": "lewa dłoń",
+    "rightHand": "prawa dłoń",
+    "resetBoth": "wyzeruj obie dłonie"
+  },
+  "hands": {
+    "tens": "Dziesiątki",
+    "units": "Jedności",
+    "leftTens": "Lewa dłoń · dziesiątki",
+    "rightUnits": "Prawa dłoń · jedności"
+  },
+  "fingers": {
+    "index": "Wskazujący",
+    "middle": "Środkowy",
+    "ring": "Serdeczny",
+    "pinky": "Mały",
+    "thumb": "Kciuk",
+    "active": "aktywny",
+    "inactive": "nieaktywny"
+  },
+  "stepVisualization": {
+    "eyebrow": "AKTUALNY KROK",
+    "valueOnHands": "Wartość na dłoniach",
+    "currentValue": "AKTUALNA WARTOŚĆ",
+    "leftTens": "Lewa dłoń · dziesiątki",
+    "rightUnits": "Prawa dłoń · jedności",
+    "previousStep": "Poprzedni krok",
+    "nextStep": "Następny krok",
+    "newExample": "Nowe działanie"
+  },
+  "stepsList": {
+    "eyebrow": "CAŁE ROZWIĄZANIE",
+    "title": "Kroki działania",
+    "stepsCount": "kroki"
+  },
+  "steps": {
+    "setFirstNumber": "Ustaw pierwszą liczbę",
+    "showNumberOnHands": "Pokaż na dłoniach liczbę {{a}}.",
+    "addTens": "Dodaj dziesiątki",
+    "addTensOnLeftHand": "Dołóż {{addedTens}} dziesiątek na lewej dłoni.",
+    "addUnits": "Dodaj jedności",
+    "addUnitsTo": "Dodaj {{addedUnits}} jedności do {{previousUnits}}.",
+    "addTen": "Dodaj dziesiątkę",
+    "addTenOnLeftHand": "Dodaj jedną dziesiątkę na lewej dłoni.",
+    "subtractFive": "Odejmij 5",
+    "raiseThumb": "Podnieś kciuk prawej dłoni, aby odjąć 5.",
+    "addNumber": "Dodaj {{adjustment}}",
+    "addUnitsOnRightHand": "Dodaj {{adjustment}} jedności na prawej dłoni.",
+    "subtractNumber": "Odejmij {{adjustment}}",
+    "subtractUnitsOnRightHand": "Odejmij {{adjustment}} jedności na prawej dłoni.",
+    "detail": "Lewa dłoń: {{left}}, prawa dłoń: {{units}}. Razem: {{total}}."
+  }
+}

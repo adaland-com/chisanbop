@@ -1,6 +1,7 @@
 
 import { useMemo, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import {
     Hand,
     Shuffle,
@@ -8,11 +9,14 @@ import {
     CheckCircle2,
     XCircle,
 } from "lucide-react";
+
 import { StepVisualization, StepsList } from "../components";
-import { getSteps } from "../utils";
+import { getSteps } from "../logic/utils";
 import styles from "./PractisePage.module.css";
 
 export function PractisePage() {
+    const { t } = useTranslation();
+
     const [showSteps, setShowSteps] = useState(false);
     const [expression, setExpression] = useState("7 + 6");
     const [activeStep, setActiveStep] = useState(0);
@@ -72,9 +76,7 @@ export function PractisePage() {
 
     function validate() {
         if (!parsed) {
-            setError(
-                "Wpisz działanie w formacie, np. 7 + 6. Wynik nie może przekraczać 99."
-            );
+            setError(t("practice.expressionInvalid"));
             return false;
         }
 
@@ -82,7 +84,7 @@ export function PractisePage() {
         return true;
     }
 
-    const checkAnswer = () => {
+    function checkAnswer() {
         if (!answer.trim()) {
             setFeedback("empty");
             return;
@@ -98,51 +100,62 @@ export function PractisePage() {
             setFeedback("incorrect");
             setShowSteps(true);
         }
-    };
+    }
 
     return (
         <main className={styles.pageContainer}>
             <div className={styles.pageHeading}>
                 <div>
-                    <span className="eyebrow">TRENING DODAWANIA</span>
-                    <h1 className={styles.pageHeadingH1}>Poćwicz</h1>
+                    <span className="eyebrow">
+                        {t("practice.eyebrow")}
+                    </span>
+
+                    <h1 className={styles.pageHeadingH1}>
+                        {t("practice.title")}
+                    </h1>
+
                     <p className={styles.pageHeadingP}>
-                        Obserwuj, jak zmienia się zapis liczby na dłoniach.
+                        {t("practice.subtitle")}
                     </p>
                 </div>
 
                 <Link to="/check" className={styles.textLink}>
                     <Hand size={18} />
-                    Otwórz własne dłonie
+                    {t("practice.openHands")}
                 </Link>
             </div>
 
             <section className={styles.exercisePanel}>
-
                 <div className={styles.exerciseTopRow}>
                     <div className={styles.exerciseInputRow}>
-                        <span className={styles.topCardLabel}>ĆWICZENIE</span>
+                        <span className={styles.topCardLabel}>
+                            {t("practice.exerciseLabel")}
+                        </span>
 
-                        <h2 className={styles.topCardTitle}>Twoje działanie</h2>
+                        <h2 className={styles.topCardTitle}>
+                            {t("practice.yourExpression")}
+                        </h2>
 
                         <div className={styles.expressionControls}>
                             <input
                                 id="expression"
                                 value={expression}
-                                onChange={(e) => updateExpression(e.target.value)}
+                                onChange={(e) =>
+                                    updateExpression(e.target.value)
+                                }
                                 onBlur={validate}
-                                aria-label="Działanie dodawania"
+                                aria-label={t("practice.expressionAriaLabel")}
                                 className={styles.expressionControlsInput}
                             />
 
                             <button
                                 className={styles.iconButton}
                                 onClick={randomExample}
-                                title="Losuj działanie"
+                                title={t("practice.randomTitle")}
                                 type="button"
                             >
                                 <Shuffle size={18} />
-                                Losuj
+                                {t("common.random")}
                             </button>
                         </div>
 
@@ -154,14 +167,21 @@ export function PractisePage() {
                     </div>
 
                     <div className={styles.answerCard}>
-                        <span className={styles.topCardLabel}>SPRAWDŹ SIĘ</span>
+                        <span className={styles.topCardLabel}>
+                            {t("practice.checkLabel")}
+                        </span>
 
-                        <h2 className={styles.topCardTitle}>Twoja odpowiedź</h2>
+                        <h2 className={styles.topCardTitle}>
+                            {t("practice.yourAnswer")}
+                        </h2>
 
                         {parsed ? (
                             <>
                                 <p className={styles.answerDescription}>
-                                    Ile wynosi {parsed.a} + {parsed.b}?
+                                    {t("practice.calculate", {
+                                        a: parsed.a,
+                                        b: parsed.b,
+                                    })}
                                 </p>
 
                                 <form
@@ -181,8 +201,12 @@ export function PractisePage() {
                                                 setAnswer(e.target.value);
                                                 setFeedback(null);
                                             }}
-                                            placeholder="Wpisz wynik"
-                                            aria-label="Wpisz wynik"
+                                            placeholder={t(
+                                                "practice.answerPlaceholder"
+                                            )}
+                                            aria-label={t(
+                                                "practice.answerAriaLabel"
+                                            )}
                                             className={styles.answerInput}
                                         />
 
@@ -191,7 +215,7 @@ export function PractisePage() {
                                             className={styles.primaryButton}
                                         >
                                             <Calculator size={17} />
-                                            Sprawdź
+                                            {t("practice.checkAnswer")}
                                         </button>
                                     </div>
                                 </form>
@@ -202,7 +226,7 @@ export function PractisePage() {
                                         role="status"
                                     >
                                         <CheckCircle2 size={18} />
-                                        Świetnie! Poprawna odpowiedź.
+                                        {t("practice.correct")}
                                     </p>
                                 )}
 
@@ -212,32 +236,32 @@ export function PractisePage() {
                                         role="status"
                                     >
                                         <XCircle size={18} />
-                                        Nie tym razem. Spróbuj ponownie!
+                                        {t("practice.incorrect")}
                                     </p>
                                 )}
 
                                 {feedback === "empty" && (
-                                    <p className={styles.errorMessage} role="alert">
-                                        Wpisz odpowiedź przed sprawdzeniem.
+                                    <p
+                                        className={styles.errorMessage}
+                                        role="alert"
+                                    >
+                                        {t("practice.emptyAnswer")}
                                     </p>
                                 )}
                             </>
                         ) : (
                             <p className={styles.answerDescription}>
-                                Najpierw wpisz poprawne działanie.
+                                {t("practice.enterValidExpression")}
                             </p>
                         )}
                     </div>
                 </div>
 
-
-
                 {parsed && current ? (
                     <>
-
                         <div className={styles.stepProgress}>
                             <span>
-                                KROK {activeStep + 1}{" "}
+                                {t("practice.step")} {activeStep + 1}{" "}
                                 <span className={styles.muted}>
                                     / {steps.length}
                                 </span>
@@ -247,9 +271,10 @@ export function PractisePage() {
                                 <div
                                     className={styles.progressTrackDiv}
                                     style={{
-                                        width: `${((activeStep + 1) / steps.length) *
+                                        width: `${
+                                            ((activeStep + 1) / steps.length) *
                                             100
-                                            }%`,
+                                        }%`,
                                     }}
                                 />
                             </div>
@@ -267,61 +292,79 @@ export function PractisePage() {
                                         )
                                     }
                                     onPrevious={() =>
-                                        setActiveStep((s) => Math.max(s - 1, 0))
+                                        setActiveStep((s) =>
+                                            Math.max(s - 1, 0)
+                                        )
                                     }
                                     onNewExample={randomExample}
                                 />
                             </div>
 
+                            <aside className={styles.stepsSidebar}>
+                                <div className={styles.stepsCard}>
+                                    <div className={styles.stepsHeader}>
+                                        <div>
+                                            <span
+                                                className={styles.topCardLabel}
+                                            >
+                                                {t("practice.helpLabel")}
+                                            </span>
 
-                          
-<aside className={styles.stepsSidebar}>
-    <div className={styles.stepsCard}>
-        <div className={styles.stepsHeader}>
-            <div>
-                <span className={styles.topCardLabel}>
-                    POMOC
-                </span>
+                                            <h2
+                                                className={styles.sectionTitle}
+                                            >
+                                                {t("practice.stepsTitle")}
+                                            </h2>
+                                        </div>
 
-                <h2 className={styles.sectionTitle}>
-                    Przebieg działania
-                </h2>
-            </div>
+                                        <button
+                                            type="button"
+                                            className={styles.stepsToggle}
+                                            onClick={() =>
+                                                setShowSteps((visible) => !visible)
+                                            }
+                                            aria-expanded={showSteps}
+                                        >
+                                            {showSteps
+                                                ? t("practice.hideSteps")
+                                                : t("practice.showSteps")}
+                                        </button>
+                                    </div>
 
-            <button
-                type="button"
-                className={styles.stepsToggle}
-                onClick={() => setShowSteps((visible) => !visible)}
-                aria-expanded={showSteps}
-            >
-                {showSteps ? "Ukryj" : "Pokaż przebieg"}
-            </button>
-        </div>
+                                    <div className={styles.stepsContent}>
+                                        <div
+                                            className={
+                                                !showSteps
+                                                    ? styles.stepsBlurred
+                                                    : undefined
+                                            }
+                                            aria-hidden={!showSteps}
+                                        >
+                                            <StepsList
+                                                steps={steps}
+                                                activeStep={activeStep}
+                                                onSelectStep={setActiveStep}
+                                            />
+                                        </div>
 
-        <div className={styles.stepsContent}>
-            <div
-                className={
-                    !showSteps ? styles.stepsBlurred : undefined
-                }
-                aria-hidden={!showSteps}
-            >
-                <StepsList
-                    steps={steps}
-                    activeStep={activeStep}
-                    onSelectStep={setActiveStep}
-                />
-            </div>
+                                        {!showSteps && (
+                                            <div
+                                                className={
+                                                    styles.stepsOverlay
+                                                }
+                                            >
+                                                <span>
+                                                    {t("practice.tryYourself")}
+                                                </span>
 
-            {!showSteps && (
-                <div className={styles.stepsOverlay}>
-                    <span>Spróbuj samodzielnie!</span>
-                    <small>Przebieg rozwiązania jest ukryty</small>
-                </div>
-            )}
-        </div>
-    </div>
-</aside>
-
+                                                <small>
+                                                    {t("practice.stepsHidden")}
+                                                </small>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            </aside>
                         </div>
                     </>
                 ) : (
@@ -329,12 +372,11 @@ export function PractisePage() {
                         <Calculator size={32} />
 
                         <h2 className={styles.emptyStateH2}>
-                            Sprawdź działanie
+                            {t("practice.invalidTitle")}
                         </h2>
 
                         <p>
-                            Wpisz dodawanie dwóch liczb, których suma nie
-                            przekracza 99.
+                            {t("practice.invalidDescription")}
                         </p>
 
                         <button
@@ -342,13 +384,11 @@ export function PractisePage() {
                             onClick={validate}
                             type="button"
                         >
-                            Sprawdź
+                            {t("common.check")}
                         </button>
                     </div>
                 )}
             </section>
         </main>
     );
-
-
 }

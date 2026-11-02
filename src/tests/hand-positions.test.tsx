@@ -1,8 +1,8 @@
 import { describe, it, expect } from "vitest";
 import { render } from "@testing-library/react";
-import LeftHand from "../components/LeftHand";
-import RightHand from "../components/RightHand";
-import { handConfigs } from "../components/HandConfig";
+import LeftHand from "../../components/LeftHand";
+import RightHand from "../../components/RightHand";
+import { handConfigs } from "../../types/HandConfig";
 import testCases from "./data/highlighting/hand-positions.test.json";
 
 describe("LeftHand - podświetlenie palców", () => {

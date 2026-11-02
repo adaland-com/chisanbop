@@ -1,7 +1,8 @@
+import { useTranslation } from "react-i18next";
 import styles from "./HandVisual.module.css";
-import { calculateLeftHandValue } from "../utils";
-import { handConfigs } from "./HandConfig";
-import type { HandProps } from "./HandProps";
+import { calculateLeftHandValue } from "../logic/utils";
+import { handConfigs } from "../types/HandConfig";
+import type { HandProps } from "../types/HandProps";
 
 export default function LeftHand({
   value,
@@ -10,7 +11,8 @@ export default function LeftHand({
   onToggle,
   keys = [],
 }: HandProps) {
-  
+  const { t } = useTranslation();
+
   const config = handConfigs.left;
 const {
   fingers: fingerConfigs,
@@ -45,7 +47,7 @@ const activeFingers = calculateFingers(value);
                 onClick={() => interactive && onToggle?.(finger.index)}
                 disabled={!interactive}
                 aria-label={`${finger.name}: ${
-                  active ? "aktywny" : "nieaktywny"
+                  active ? t("fingers.active") : t("fingers.inactive")
                 }`}
                 aria-pressed={active}
                 title={`${finger.name}${key ? ` (${key})` : ""}`}

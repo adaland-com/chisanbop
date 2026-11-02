@@ -2,9 +2,9 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import StepsList from "../components/StepsList";
-import type { Step } from "../utils";
-import stepsData from "../test/data/steps/steps-data.json";
+import StepsList from "../../components/StepsList";
+import type { Step } from "../../logic/utils";
+import stepsData from "./data/steps/steps-data.json";
 
 const mockSteps: Step[] = stepsData.mockSteps;
 const additionSteps: Step[] = stepsData.additionSteps;

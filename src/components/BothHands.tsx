@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import InteractiveHandCard from "./InteractiveHandCard";
 
 interface BothHandsProps {
@@ -13,19 +14,21 @@ export default function BothHands({
   onToggleTens,
   onToggleUnits,
 }: BothHandsProps) {
+  const { t } = useTranslation();
+
   return (
     <>
       <InteractiveHandCard
         side="left"
         value={tens}
-        label="Dziesiątki"
+        label={t("hands.tens")}
         onToggle={onToggleTens}
       />
 
       <InteractiveHandCard
         side="right"
         value={units}
-        label="Jedności"
+        label={t("hands.units")}
         onToggle={onToggleUnits}
       />
     </>

@@ -6,4 +6,4 @@ export { default as StepsList } from "./StepsList";
 export { default as InteractiveHandCard } from "./InteractiveHandCard";
 export { default as BothHands } from "./BothHands";
 export { default as BothHandsDisplay } from "./BothHandsDisplay";
-export { handConfigs, type HandConfig, type HandSide } from "./HandConfig";
+export { handConfigs, type HandConfig, type HandSide } from "../types/HandConfig";

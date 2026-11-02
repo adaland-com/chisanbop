@@ -1,4 +1,5 @@
 
+import { useTranslation } from "react-i18next";
 import styles from "./HandVisual.module.css";
 
 type HandVisualProps = {
@@ -18,16 +19,18 @@ export default function HandVisual({
   keys = [],
   side = "right",
 }: HandVisualProps) {
+  const { t } = useTranslation();
+
   const thumbActive = value >= 5;
   const ones = value % 5;
 
   // Nazwy palców według ich indeksów logicznych.
   const fingerNames = [
-    "Wskazujący",
-    "Środkowy",
-    "Serdeczny",
-    "Mały",
-    "Kciuk",
+    t("fingers.index"),
+    t("fingers.middle"),
+    t("fingers.ring"),
+    t("fingers.pinky"),
+    t("fingers.thumb"),
   ];
 
   // Kolejność wyświetlania palców.
@@ -80,7 +83,7 @@ export default function HandVisual({
                 onClick={() => interactive && onToggle?.(index)}
                 disabled={!interactive}
                 aria-label={`${fingerNames[index]}: ${
-                  active ? "aktywny" : "nieaktywny"
+                  active ? t("fingers.active") : t("fingers.inactive")
                 }`}
                 aria-pressed={active}
                 title={`${fingerNames[index]}${key ? ` (${key})` : ""}`}

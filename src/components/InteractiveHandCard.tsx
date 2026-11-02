@@ -1,4 +1,4 @@
-import { handConfigs, type HandSide } from "./HandConfig";
+import { handConfigs, type HandSide } from "../types/HandConfig";
 import LeftHand from "./LeftHand";
 import RightHand from "./RightHand";
 

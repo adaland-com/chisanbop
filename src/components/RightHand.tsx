@@ -1,6 +1,7 @@
+import { useTranslation } from "react-i18next";
 import styles from "./HandVisual.module.css";
-import { handConfigs } from "./HandConfig";
-import type { HandProps } from "./HandProps";
+import { handConfigs } from "../types/HandConfig";
+import type { HandProps } from "../types/HandProps";
 
 export default function RightHand({
   value,
@@ -9,6 +10,8 @@ export default function RightHand({
   onToggle,
   keys = [],
 }: HandProps) {
+  const { t } = useTranslation();
+
   const config = handConfigs.right;
   const { fingers: fingerConfigs, fingerOrder, calculateFingers } = config;
 
@@ -38,7 +41,7 @@ export default function RightHand({
                 onClick={() => interactive && onToggle?.(finger.index)}
                 disabled={!interactive}
                 aria-label={`${finger.name}: ${
-                  active ? "aktywny" : "nieaktywny"
+                  active ? t("fingers.active") : t("fingers.inactive")
                 }`}
                 aria-pressed={active}
                 title={`${finger.name}${key ? ` (${key})` : ""}`}

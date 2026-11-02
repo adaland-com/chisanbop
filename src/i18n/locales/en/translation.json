@@ -1,0 +1,113 @@
+
+{
+  "common": {
+    "random": "Random",
+    "check": "Check"
+  },
+  "practice": {
+    "eyebrow": "ADDITION PRACTICE",
+    "title": "Practice",
+    "subtitle": "Watch how numbers change on your hands.",
+    "openHands": "Open hand calculator",
+    "exerciseLabel": "EXERCISE",
+    "yourExpression": "Your expression",
+    "expressionAriaLabel": "Addition expression",
+    "randomTitle": "Generate a random expression",
+    "expressionInvalid": "Enter an addition expression in the format, for example, 7 + 6. The result cannot exceed 99.",
+    "checkLabel": "TEST YOURSELF",
+    "yourAnswer": "Your answer",
+    "calculate": "What is {{a}} + {{b}}?",
+    "answerPlaceholder": "Enter your answer",
+    "answerAriaLabel": "Enter your answer",
+    "checkAnswer": "Check answer",
+    "correct": "Great! Your answer is correct.",
+    "incorrect": "Not quite. Try again!",
+    "emptyAnswer": "Enter an answer before checking.",
+    "enterValidExpression": "Enter a valid addition expression first.",
+    "step": "STEP",
+    "helpLabel": "HELP",
+    "stepsTitle": "Calculation steps",
+    "showSteps": "Show steps",
+    "hideSteps": "Hide steps",
+    "tryYourself": "Try it yourself!",
+    "stepsHidden": "The solution is hidden",
+    "invalidTitle": "Check your expression",
+    "invalidDescription": "Enter an addition of two numbers whose sum does not exceed 99."
+  },
+  "home": {
+    "eyebrow": "MATH ON FINGERS",
+    "title": "Count it",
+    "titleSpan": "on your fingers.",
+    "subtitle": "Discover Chisanbop – a simple way to count and add using both hands.",
+    "startPractise": "Start practising",
+    "openHands": "Open hands",
+    "tens": "Tens",
+    "units": "Units",
+    "heroCaption": "Numbers written on hands",
+    "practiceTitle": "Practice",
+    "practiceDescription": "Go through addition step by step and watch the changes on your hands.",
+    "practiceLink": "Go to practice",
+    "checkValueTitle": "Check value",
+    "checkValueDescription": "Click fingers and watch how the number changes from 0 to 99.",
+    "checkValueLink": "Open visualization"
+  },
+  "value": {
+    "eyebrow": "INTERACTIVE VISUALIZATION",
+    "title": "Value on hands",
+    "subtitle": "Click fingers or use keyboard shortcuts to change the number.",
+    "reset": "Reset",
+    "currentValue": "CURRENT VALUE",
+    "tensUnits": "{{tensValue}} tens + {{units}} units",
+    "keyboardShortcuts": "Keyboard shortcuts",
+    "leftHand": "left hand",
+    "rightHand": "right hand",
+    "resetBoth": "reset both hands"
+  },
+  "hands": {
+    "tens": "Tens",
+    "units": "Units",
+    "leftTens": "Left hand · tens",
+    "rightUnits": "Right hand · units"
+  },
+  "fingers": {
+    "index": "Index",
+    "middle": "Middle",
+    "ring": "Ring",
+    "pinky": "Pinky",
+    "thumb": "Thumb",
+    "active": "active",
+    "inactive": "inactive"
+  },
+  "stepVisualization": {
+    "eyebrow": "CURRENT STEP",
+    "valueOnHands": "Value on hands",
+    "currentValue": "CURRENT VALUE",
+    "leftTens": "Left hand · tens",
+    "rightUnits": "Right hand · units",
+    "previousStep": "Previous step",
+    "nextStep": "Next step",
+    "newExample": "New example"
+  },
+  "stepsList": {
+    "eyebrow": "FULL SOLUTION",
+    "title": "Calculation steps",
+    "stepsCount": "steps"
+  },
+  "steps": {
+    "setFirstNumber": "Set the first number",
+    "showNumberOnHands": "Show number {{a}} on your hands.",
+    "addTens": "Add tens",
+    "addTensOnLeftHand": "Add {{addedTens}} tens on the left hand.",
+    "addUnits": "Add units",
+    "addUnitsTo": "Add {{addedUnits}} units to {{previousUnits}}.",
+    "addTen": "Add ten",
+    "addTenOnLeftHand": "Add one ten on the left hand.",
+    "subtractFive": "Subtract 5",
+    "raiseThumb": "Raise the right hand thumb to subtract 5.",
+    "addNumber": "Add {{adjustment}}",
+    "addUnitsOnRightHand": "Add {{adjustment}} units on the right hand.",
+    "subtractNumber": "Subtract {{adjustment}}",
+    "subtractUnitsOnRightHand": "Subtract {{adjustment}} units on the right hand.",
+    "detail": "Left hand: {{left}}, right hand: {{units}}. Total: {{total}}."
+  }
+}
