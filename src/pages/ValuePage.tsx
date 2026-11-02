@@ -44,7 +44,6 @@ export function ValuePage() {
         (finger) => finger.key === key
       );
 
-      // Lewa dłoń – dziesiątki.
       if (leftFinger) {
         event.preventDefault();
         setTens((v) => toggleDigit(v, leftFinger.index));

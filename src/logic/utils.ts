@@ -90,7 +90,6 @@ export function getSteps(a: number, b: number): Step[] {
         detail.params
       );
     } else {
-      // Przeniesienie jednej dziesiątki.
       tens += 1;
 
       const detail = getDetail();
@@ -106,7 +105,6 @@ export function getSteps(a: number, b: number): Step[] {
       const toSubtract = 10 - addedUnits;
 
       if (units >= 5) {
-        // Odejmujemy 5 za pomocą kciuka.
         units -= 5;
 
         const detail = getDetail();

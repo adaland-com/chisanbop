@@ -24,7 +24,6 @@ export default function HandVisual({
   const thumbActive = value >= 5;
   const ones = value % 5;
 
-  // Nazwy palców według ich indeksów logicznych.
   const fingerNames = [
     t("fingers.index"),
     t("fingers.middle"),
@@ -33,13 +32,11 @@ export default function HandVisual({
     t("fingers.thumb"),
   ];
 
-  // Kolejność wyświetlania palców.
   const fingerOrder =
     side === "left"
       ? [3, 2, 1, 0, 4]
       : [4, 0, 1, 2, 3];
 
-  // Aktywność według indeksów logicznych.
   const fingers = side === "left"
     ? [
         value >= 1,

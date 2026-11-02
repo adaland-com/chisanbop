@@ -44,7 +44,6 @@
   box-shadow: 0 8px 30px rgba(30, 50, 90, 0.035);
 }
 
-/* Górny wiersz: działanie + odpowiedź */
 
 .exerciseTopRow {
   display: grid;
@@ -117,7 +116,6 @@
   font-size: 12px;
 }
 
-/* Karta odpowiedzi */
 
 .answerCard {
   min-width: 0;
@@ -127,7 +125,6 @@
   border-radius: 14px;
 }
 
-/* Postęp */
 
 .stepProgress {
   display: flex;
@@ -160,7 +157,6 @@
   transition: width 0.25s;
 }
 
-/* Pusty stan */
 
 .emptyState {
   padding: 60px 20px;
@@ -172,7 +168,6 @@
   color: var(--ink);
 }
 
-/* Przyciski */
 
 .primaryButton {
   display: inline-flex;
@@ -197,7 +192,6 @@
   transform: translateY(-1px);
 }
 
-/* Główny układ ćwiczenia */
 
 .practiceLayout {
   display: grid;
@@ -240,7 +234,6 @@
   line-height: 1.5;
 }
 
-/* Pole odpowiedzi */
 
 .answerControls {
   display: flex;
@@ -285,7 +278,6 @@
   color: #c44545;
 }
 
-/* Responsywność */
 
 @media (max-width: 900px) {
   .practiceLayout {
@@ -337,7 +329,6 @@
   }
 }
 
-/* Nowy wygląd górnych kart */
 
 .exerciseTopRow {
     display: grid;
@@ -447,14 +438,12 @@
     margin-bottom: 0;
 }
 
-/* Nieco więcej miejsca na przebieg działania */
 
 .practiceLayout {
     grid-template-columns: minmax(0, 1.45fr) minmax(320px, 1fr);
     gap: 26px;
 }
 
-/* Telefon i mniejsze ekrany */
 
 @media (max-width: 760px) {
     .exerciseTopRow {
@@ -498,7 +487,6 @@
     }
 }
 
-/* Nagłówek przebiegu działania */
 
 .stepsHeader {
     display: flex;
@@ -531,7 +519,6 @@
     border-color: var(--blue);
 }
 
-/* Domyślnie rozmyty przebieg */
 
 .stepsContent {
     position: relative;
