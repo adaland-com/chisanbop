@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import styles from "./StepsList.module.css";
 import { ArrowRight } from "lucide-react";
-import type { Step } from "../logic/utils";
+import type { Step } from "../../logic/utils";
 
 interface StepsListProps {
   steps: Step[];

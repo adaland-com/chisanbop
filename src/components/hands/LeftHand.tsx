@@ -1,9 +1,10 @@
 import { useTranslation } from "react-i18next";
 import styles from "./HandVisual.module.css";
-import { handConfigs } from "../types/HandConfig";
-import type { HandProps } from "../types/HandProps";
+import { calculateLeftHandValue } from "../../logic/utils";
+import { handConfigs } from "../../types/HandConfig";
+import type { HandProps } from "../../types/HandProps";
 
-export default function RightHand({
+export default function LeftHand({
   value,
   label,
   interactive = false,
@@ -12,13 +13,18 @@ export default function RightHand({
 }: HandProps) {
   const { t } = useTranslation();
 
-  const config = handConfigs.right;
-  const { fingers: fingerConfigs, fingerOrder, calculateFingers } = config;
+  const config = handConfigs.left;
+const {
+  fingers: fingerConfigs,
+  fingerOrder,
+  calculateFingers,
+} = config;
 
-  const activeFingers = calculateFingers(value);
+const activeFingers = calculateFingers(value);
+  const displayValue = calculateLeftHandValue(value);
 
   return (
-    <div className={styles.handVisual}>
+    <div className={`${styles.handVisual} ${styles.handLeft}`}>
       {label && <div className={styles.handLabel}>{label}</div>}
 
       <div className={styles.handDrawing}>
@@ -55,7 +61,7 @@ export default function RightHand({
         </div>
       </div>
 
-      <div className={styles.handDigit}>{value}</div>
+      <div className={styles.handDigit}>{displayValue}</div>
     </div>
   );
 }

@@ -1,10 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { House, GraduationCap, Calculator, Hand, ChevronDown } from "lucide-react";
 import styles from "./Header.module.css";
 import i18n from "../../i18n";
 
 export default function Header() {
+  const { t } = useTranslation();
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
   const currentLanguage = i18n.language;
 
@@ -30,7 +32,7 @@ export default function Header() {
           `${styles.mainNavLink} ${isActive ? styles.mainNavLinkActive : ""}`
         }
       >
-        <House size={17} /> Start
+        <House size={17} /> {t("navigation.home")}
       </NavLink>
 
       <NavLink
@@ -39,7 +41,7 @@ export default function Header() {
           `${styles.mainNavLink} ${isActive ? styles.mainNavLinkActive : ""}`
         }
       >
-        <GraduationCap size={17} /> Poćwicz
+        <GraduationCap size={17} /> {t("navigation.practise")}
       </NavLink>
 
       <NavLink
@@ -48,7 +50,7 @@ export default function Header() {
           `${styles.mainNavLink} ${isActive ? styles.mainNavLinkActive : ""}`
         }
       >
-        <Calculator size={17} /> Wartość
+        <Calculator size={17} /> {t("navigation.value")}
       </NavLink>
     </nav>
 
@@ -77,7 +79,7 @@ export default function Header() {
             }}
           >
             <span className={styles.languageFlag}>🇬🇧</span>
-            English
+            {t("navigation.english")}
           </button>
 
           <button
@@ -90,7 +92,7 @@ export default function Header() {
             }}
           >
             <span className={styles.languageFlag}>🇵🇱</span>
-            Polski
+            {t("navigation.polish")}
           </button>
         </div>
       )}

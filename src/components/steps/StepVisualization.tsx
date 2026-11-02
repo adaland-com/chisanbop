@@ -1,8 +1,8 @@
 import { useTranslation } from "react-i18next";
 import styles from "./StepVisualization.module.css";
 import { ArrowLeft, ArrowRight, Shuffle } from "lucide-react";
-import { BothHandsDisplay } from "./index";
-import type { Step } from "../logic/utils";
+import { BothHandsDisplay } from "../hands";
+import type { Step } from "../../logic/utils";
 
 interface StepVisualizationProps {
   step: Step;

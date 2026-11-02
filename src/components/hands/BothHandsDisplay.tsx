@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
-import { LeftHand, RightHand } from "./index";
-import styles from "./StepVisualization.module.css";
+import LeftHand from "./LeftHand";
+import RightHand from "./RightHand";
+import styles from "../steps/StepVisualization.module.css";
 
 interface BothHandsDisplayProps {
   tens: number;

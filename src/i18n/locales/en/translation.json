@@ -1,5 +1,12 @@
-
 {
+  "navigation": {
+    "home": "Home",
+    "practise": "Practice",
+    "value": "Value",
+    "check": "Check",
+    "english": "English",
+    "polish": "Polski"
+  },
   "common": {
     "random": "Random",
     "check": "Check"

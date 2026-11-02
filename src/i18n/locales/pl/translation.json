@@ -2,7 +2,10 @@
   "navigation": {
     "home": "Strona główna",
     "practise": "Ćwicz",
-    "check": "Sprawdź"
+    "value": "Wartość",
+    "check": "Sprawdź",
+    "english": "English",
+    "polish": "Polski"
   },
   "practice": {
     "title": "Poćwicz dodawanie",
